@@ -1,0 +1,18 @@
+---
+sidebar_position: 1
+---
+
+# CLI command reference
+
+The `netft` command provides six stable subcommands. Use the task tutorials to commission or operate a sensor; use these pages to look up exact syntax, applicable options, side effects, and exit status.
+
+| Command                          | Contract                                                                |
+| -------------------------------- | ----------------------------------------------------------------------- |
+| [`info`](./info.mdx)             | Read identity and calibration without starting continuous RDT streaming |
+| [`check`](./check.mdx)           | Run bounded acquisition and evaluate explicit acceptance criteria       |
+| [`monitor`](./monitor.mdx)       | Present the newest live sample without retaining a backlog              |
+| [`record`](./record.mdx)         | Preserve every accepted sample or fail capture integrity explicitly     |
+| [`bias`](./bias.mdx)             | Apply sensor software bias after confirmation                           |
+| [`completion`](./completion.mdx) | Generate shell completion                                               |
+
+Command-line values override environment variables, which override built-in defaults. Machine-readable results use stdout or the requested file; diagnostics use stderr.

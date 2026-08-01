@@ -1,0 +1,17 @@
+---
+sidebar_position: 6
+---
+
+import cppManifest from '@site/data/reference/cpp.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Functions
+
+The public free functions cover bounded HTTP discovery, configuration validation, status classification and decoding, and stable enum/string conversion.
+
+{cppManifest.symbols.filter((symbol) => symbol.category === 'function').map((symbol) => (
+
+  <ApiType key={symbol.id} manifest={cppManifest} symbolId={symbol.id} />
+))}
+
+`discover_sensor` performs HTTP configuration discovery only; it does not begin RDT streaming. `decode_status` returns human-readable diagnostics, while `classify_status` provides the stable severity used for decisions.

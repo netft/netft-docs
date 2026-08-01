@@ -1,0 +1,14 @@
+---
+sidebar_position: 1
+---
+
+import rosManifest from '@site/data/reference/ros.json';
+import {RosInterface} from '@site/src/components/Reference';
+
+# Standalone node interfaces
+
+The ROS 1 and ROS 2 standalone nodes share endpoint, calibration, publishing, recovery, and diagnostic configuration. ROS wrench output is always N and N·m.
+
+<RosInterface manifest={rosManifest} section="standalone" />
+
+ROS 2 uses SensorDataQoS for wrench data and reliable diagnostics. ROS 1 uses a wrench publisher queue of 10. The message timestamp is the local ROS clock immediately after a complete RDT record is accepted.

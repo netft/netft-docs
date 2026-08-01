@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 1,
+  "kind": "cli",
+  "component": "netft-cli",
+  "version": "0.2.0",
+  "sourceTag": "v0.2.0",
+  "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.0",
+  "options": [
+    {
+      "id": "color",
+      "longName": "color",
+      "valueType": "auto|always|never",
+      "values": ["auto", "always", "never"],
+      "description": "Control color in human-readable output."
+    },
+    {
+      "id": "count",
+      "longName": "count",
+      "valueType": "INTEGER",
+      "values": [],
+      "description": "Stop after recording this many samples."
+    },
+    {
+      "id": "duration",
+      "longName": "duration",
+      "valueType": "DURATION",
+      "values": [],
+      "description": "Stop after a bounded duration."
+    },
+    {
+      "id": "format",
+      "longName": "format",
+      "valueType": "auto|text|json|table|ndjson|csv",
+      "values": ["auto", "text", "json", "table", "ndjson", "csv"],
+      "description": "Select the output format."
+    },
+    {
+      "id": "http-port",
+      "longName": "http-port",
+      "valueType": "PORT",
+      "values": [],
+      "description": "Set the sensor HTTP port."
+    },
+    {
+      "id": "max-loss",
+      "longName": "max-loss",
+      "valueType": "NUMBER",
+      "values": [],
+      "description": "Allow at most this packet loss percentage."
+    },
+    {
+      "id": "max-reconnects",
+      "longName": "max-reconnects",
+      "valueType": "INTEGER",
+      "values": [],
+      "description": "Allow at most this many reconnects."
+    },
+    {
+      "id": "min-rate",
+      "longName": "min-rate",
+      "valueType": "NUMBER",
+      "values": [],
+      "description": "Require a minimum observed receive rate."
+    },
+    {
+      "id": "output",
+      "longName": "output",
+      "valueType": "PATH",
+      "values": [],
+      "description": "Write output to a file."
+    },
+    {
+      "id": "quiet",
+      "longName": "quiet",
+      "shortName": "q",
+      "valueType": "flag",
+      "values": [],
+      "description": "Suppress progress output."
+    },
+    {
+      "id": "rate",
+      "longName": "rate",
+      "valueType": "NUMBER",
+      "values": [],
+      "description": "Set the monitor output rate in hertz."
+    },
+    {
+      "id": "rdt-port",
+      "longName": "rdt-port",
+      "valueType": "PORT",
+      "values": [],
+      "description": "Set the sensor RDT port."
+    },
+    {
+      "id": "timeout",
+      "longName": "timeout",
+      "valueType": "DURATION",
+      "values": [],
+      "description": "Set the connection timeout."
+    },
+    {
+      "id": "verbose",
+      "longName": "verbose",
+      "shortName": "v",
+      "valueType": "flag",
+      "values": [],
+      "description": "Show additional diagnostic progress."
+    },
+    {
+      "id": "yes",
+      "longName": "yes",
+      "shortName": "y",
+      "valueType": "flag",
+      "values": [],
+      "description": "Confirm the operation without prompting."
+    }
+  ],
+  "commands": [
+    {
+      "id": "info",
+      "name": "info",
+      "synopsis": "netft info [HOST] [OPTIONS]",
+      "description": "Show sensor identity and configuration.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output"
+      ],
+      "positionals": [],
+      "examples": [
+        "netft info sensor.example",
+        "netft info sensor.example --format json"
+      ],
+      "exitStatuses": [0, 2, 3, 6]
+    },
+    {
+      "id": "check",
+      "name": "check",
+      "synopsis": "netft check [HOST] [OPTIONS]",
+      "description": "Run a bounded sensor stream health check.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output",
+        "duration",
+        "min-rate",
+        "max-loss",
+        "max-reconnects"
+      ],
+      "positionals": [],
+      "examples": [
+        "netft check sensor.example",
+        "netft check sensor.example --format json"
+      ],
+      "exitStatuses": [0, 2, 3, 4, 5, 6, 7, 130]
+    },
+    {
+      "id": "monitor",
+      "name": "monitor",
+      "synopsis": "netft monitor [HOST] [OPTIONS]",
+      "description": "Display the latest sensor sample at a bounded output rate.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output",
+        "rate",
+        "duration"
+      ],
+      "positionals": [],
+      "examples": [
+        "netft monitor sensor.example",
+        "netft monitor sensor.example --rate 50"
+      ],
+      "exitStatuses": [0, 2, 3, 4, 5, 6, 130]
+    },
+    {
+      "id": "record",
+      "name": "record",
+      "synopsis": "netft record [HOST] --output PATH [OPTIONS]",
+      "description": "Record every accepted sensor sample to a bounded capture.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output",
+        "duration",
+        "count"
+      ],
+      "positionals": [],
+      "examples": [
+        "netft record sensor.example --output measurement.csv",
+        "netft record sensor.example --output measurement.ndjson --duration 60s"
+      ],
+      "exitStatuses": [0, 2, 3, 4, 5, 6, 8, 130]
+    },
+    {
+      "id": "bias",
+      "name": "bias",
+      "synopsis": "netft bias [HOST] [OPTIONS]",
+      "description": "Apply a software bias after explicit confirmation.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output",
+        "yes"
+      ],
+      "positionals": [],
+      "examples": [
+        "netft bias sensor.example",
+        "netft bias sensor.example --yes"
+      ],
+      "exitStatuses": [0, 2, 3, 4, 5, 6, 130]
+    },
+    {
+      "id": "completion",
+      "name": "completion",
+      "synopsis": "netft completion SHELL",
+      "description": "Generate a shell completion script.",
+      "optionIds": ["verbose", "quiet", "color"],
+      "positionals": [],
+      "examples": ["netft completion bash", "netft completion powershell"],
+      "exitStatuses": [0, 2]
+    }
+  ],
+  "exitStatuses": [
+    {
+      "code": 0,
+      "meaning": "Completed successfully"
+    },
+    {
+      "code": 2,
+      "meaning": "Invalid command line or configuration"
+    },
+    {
+      "code": 3,
+      "meaning": "Sensor discovery failed"
+    },
+    {
+      "code": 4,
+      "meaning": "Stream connection or acquisition failed"
+    },
+    {
+      "code": 5,
+      "meaning": "Sensor reported a fault"
+    },
+    {
+      "code": 6,
+      "meaning": "Input/output operation failed"
+    },
+    {
+      "code": 7,
+      "meaning": "A check acceptance criterion failed"
+    },
+    {
+      "code": 8,
+      "meaning": "Recording integrity could not be guaranteed"
+    },
+    {
+      "code": 130,
+      "meaning": "Interrupted"
+    }
+  ]
+}

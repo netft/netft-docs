@@ -1,0 +1,14 @@
+---
+sidebar_position: 2
+---
+
+import rosManifest from '@site/data/reference/ros.json';
+import {RosInterface} from '@site/src/components/Reference';
+
+# ros2_control hardware interfaces
+
+The sensor plugin exports state to controller manager. A force/torque broadcaster owns the ROS topic, frame, and publication rate.
+
+<RosInterface manifest={rosManifest} section="hardware" />
+
+Each plugin instance owns its socket, receiver, state buffer, diagnostics, and bias service. The six values are N and N·m. Network I/O runs outside the controller-manager update loop, but end-to-end hard real-time behavior is not guaranteed.

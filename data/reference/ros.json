@@ -1,0 +1,258 @@
+{
+  "schemaVersion": 1,
+  "kind": "ros",
+  "component": "ros-netft",
+  "version": "0.3.2",
+  "sourceTag": "0.3.2",
+  "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.2",
+  "pluginClass": "netft_driver/NetFTHardwareInterface",
+  "standaloneParameters": [
+    {
+      "name": "sensor_ip",
+      "type": "string",
+      "default": "192.168.1.1",
+      "description": "Sensor IPv4 address or host"
+    },
+    {
+      "name": "sensor_port",
+      "type": "int",
+      "default": 49152,
+      "description": "RDT UDP port"
+    },
+    {
+      "name": "http_port",
+      "type": "int",
+      "default": 80,
+      "description": "Sensor HTTP configuration port"
+    },
+    {
+      "name": "use_sensor_calibration",
+      "type": "bool",
+      "default": true,
+      "description": "Discover calibration from the sensor over HTTP"
+    },
+    {
+      "name": "frame_id",
+      "type": "string",
+      "default": "netft_link",
+      "description": "Wrench header frame"
+    },
+    {
+      "name": "wrench_topic",
+      "type": "string",
+      "default": "/netft/wrench",
+      "description": "Published wrench topic"
+    },
+    {
+      "name": "bias_service",
+      "type": "string",
+      "default": "/netft/bias",
+      "description": "Software-bias service"
+    },
+    {
+      "name": "counts_per_force",
+      "type": "int",
+      "default": 1000000,
+      "description": "Counts per newton for a manual override"
+    },
+    {
+      "name": "counts_per_torque",
+      "type": "int",
+      "default": 1000000,
+      "description": "Counts per newton-meter for a manual override"
+    },
+    {
+      "name": "publish_rate",
+      "type": "int",
+      "default": 0,
+      "description": "Maximum publish rate; zero publishes every accepted sample"
+    },
+    {
+      "name": "receive_timeout",
+      "type": "double",
+      "default": 0.1,
+      "description": "Maximum seconds without a valid record"
+    },
+    {
+      "name": "configuration_connect_timeout",
+      "type": "double",
+      "default": 0.5,
+      "description": "HTTP connection timeout"
+    },
+    {
+      "name": "configuration_timeout",
+      "type": "int",
+      "default": 1,
+      "description": "Total HTTP configuration timeout"
+    },
+    {
+      "name": "reconnect_initial_delay",
+      "type": "double",
+      "default": 0.25,
+      "description": "Initial reconnect delay"
+    },
+    {
+      "name": "reconnect_max_delay",
+      "type": "int",
+      "default": 5,
+      "description": "Maximum reconnect delay"
+    },
+    {
+      "name": "diagnostics_rate",
+      "type": "int",
+      "default": 1,
+      "description": "Diagnostics publication rate"
+    },
+    {
+      "name": "expected_rdt_rate",
+      "type": "int",
+      "default": 2000,
+      "description": "Expected RDT receive rate"
+    },
+    {
+      "name": "rate_tolerance",
+      "type": "double",
+      "default": 0.2,
+      "description": "Allowed fractional receive-rate deviation"
+    },
+    {
+      "name": "publish_on_error",
+      "type": "bool",
+      "default": false,
+      "description": "Publish standalone samples with serious device status"
+    }
+  ],
+  "hardwareParameters": [
+    {
+      "name": "sensor_ip",
+      "type": "string",
+      "default": "192.168.1.1",
+      "description": "Sensor IPv4 address or host"
+    },
+    {
+      "name": "sensor_port",
+      "type": "int",
+      "default": 49152,
+      "description": "RDT UDP port"
+    },
+    {
+      "name": "http_port",
+      "type": "int",
+      "default": 80,
+      "description": "Sensor HTTP configuration port"
+    },
+    {
+      "name": "use_sensor_calibration",
+      "type": "bool",
+      "default": true,
+      "description": "Discover calibration from the sensor over HTTP"
+    },
+    {
+      "name": "counts_per_force",
+      "type": "int",
+      "default": 1000000,
+      "description": "Counts per newton for a manual override"
+    },
+    {
+      "name": "counts_per_torque",
+      "type": "int",
+      "default": 1000000,
+      "description": "Counts per newton-meter for a manual override"
+    },
+    {
+      "name": "receive_timeout",
+      "type": "double",
+      "default": 0.1,
+      "description": "Maximum seconds without a valid record"
+    },
+    {
+      "name": "configuration_connect_timeout",
+      "type": "double",
+      "default": 0.5,
+      "description": "HTTP connection timeout"
+    },
+    {
+      "name": "configuration_timeout",
+      "type": "int",
+      "default": 1,
+      "description": "Total HTTP configuration timeout"
+    },
+    {
+      "name": "activation_timeout",
+      "type": "int",
+      "default": 2,
+      "description": "Maximum wait for the first healthy hardware sample"
+    },
+    {
+      "name": "bias_service",
+      "type": "string",
+      "default": "",
+      "description": "Software-bias service"
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "wrench",
+      "category": "topic",
+      "name": "/netft/wrench",
+      "type": "geometry_msgs/WrenchStamped",
+      "description": "Standalone SI wrench output"
+    },
+    {
+      "id": "bias",
+      "category": "service",
+      "name": "/netft/bias",
+      "type": "std_srvs/Trigger",
+      "description": "Standalone software bias"
+    },
+    {
+      "id": "diagnostics",
+      "category": "diagnostic",
+      "name": "/diagnostics",
+      "type": "diagnostic_msgs/DiagnosticArray",
+      "description": "Connection and measurement health"
+    },
+    {
+      "id": "state-force.x",
+      "category": "state",
+      "name": "<sensor_name>/force.x",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    },
+    {
+      "id": "state-force.y",
+      "category": "state",
+      "name": "<sensor_name>/force.y",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    },
+    {
+      "id": "state-force.z",
+      "category": "state",
+      "name": "<sensor_name>/force.z",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    },
+    {
+      "id": "state-torque.x",
+      "category": "state",
+      "name": "<sensor_name>/torque.x",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    },
+    {
+      "id": "state-torque.y",
+      "category": "state",
+      "name": "<sensor_name>/torque.y",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    },
+    {
+      "id": "state-torque.z",
+      "category": "state",
+      "name": "<sensor_name>/torque.z",
+      "type": "double",
+      "description": "ros2_control force/torque state interface"
+    }
+  ]
+}

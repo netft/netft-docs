@@ -1,0 +1,27 @@
+---
+sidebar_position: 2
+---
+
+import pythonManifest from '@site/data/reference/python.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Client
+
+`Client` is a synchronous lifecycle API with mutually exclusive iterator and callback delivery modes. It does not create or expose an `asyncio` event loop.
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.Client" />
+
+## Method behavior
+
+| Method                  | Contract                                                                                                                                              |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `start(callback=None)`  | Starts iterator or callback delivery. Repeating the same active mode is idempotent; changing mode or callback during a run raises `RuntimeError`.     |
+| `stop()`                | Idempotently stops native acquisition, closes the delivery queue, wakes readers, and joins an external callback dispatcher.                           |
+| `samples(timeout=None)` | Returns the blocking iterator. Per-read timeout raises `TimeoutError`; normal stop ends iteration; a terminal sensor fault raises `SensorFaultError`. |
+| `wait(timeout=None)`    | Callback-mode completion wait. A wait timeout does not stop acquisition.                                                                              |
+| `raise_if_failed()`     | Raises a stored callback-mode delivery failure without waiting.                                                                                       |
+| `latest_sample()`       | Returns the newest delivered sample without consuming the queue.                                                                                      |
+| `health()`              | Returns an immutable snapshot including Python queue drops.                                                                                           |
+| `bias()`                | Sends software bias and requires a running connection.                                                                                                |
+
+Callbacks run serially on a Python dispatcher, not on the native receive worker. When its bounded queue is full, pyNetFT discards the oldest pending Python delivery and increments `python_queue_dropped_count`.

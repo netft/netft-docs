@@ -1,0 +1,60 @@
+{
+  "name": "netft-docs",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.18.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "docusaurus build",
+    "check:build": "node scripts/check-built-site.mjs",
+    "check:examples": "node scripts/check-examples.mjs",
+    "clear": "docusaurus clear",
+    "format": "prettier --write . --ignore-unknown",
+    "format:check": "prettier --check . --ignore-unknown",
+    "lint:docs": "markdownlint-cli2",
+    "serve": "docusaurus serve",
+    "start": "docusaurus start",
+    "test": "node --test",
+    "test:unit": "node --test test/check-built-site.test.mjs test/validate-ecosystem.test.mjs test/validate-sources.test.mjs test/reference-manifest.test.mjs test/reference-update.test.mjs",
+    "test:built": "node --test test/reference-rendering.test.mjs test/api-coverage.test.mjs test/interface-reference-coverage.test.mjs test/site-chrome.test.mjs",
+    "typecheck": "tsc",
+    "update:references": "node scripts/reference/update.mjs",
+    "validate:references": "node scripts/validate-reference-manifests.mjs",
+    "validate:ecosystem": "node scripts/validate-ecosystem.mjs",
+    "validate:sources": "node scripts/validate-sources.mjs",
+    "check": "prettier --check . --ignore-unknown && markdownlint-cli2 && corepack pnpm test:unit && node scripts/validate-ecosystem.mjs && node scripts/validate-sources.mjs && node scripts/validate-reference-manifests.mjs && node scripts/check-examples.mjs && tsc && docusaurus build && corepack pnpm test:built && node scripts/check-built-site.mjs"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.10.2",
+    "@docusaurus/plugin-client-redirects": "3.10.2",
+    "@docusaurus/preset-classic": "3.10.2",
+    "@easyops-cn/docusaurus-search-local": "0.55.3",
+    "@mdx-js/react": "3.1.1",
+    "clsx": "2.1.1",
+    "prism-react-renderer": "2.4.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.10.2",
+    "@docusaurus/tsconfig": "3.10.2",
+    "@docusaurus/types": "3.10.2",
+    "markdownlint-cli2": "0.23.2",
+    "prettier": "3.9.6",
+    "typescript": "5.9.3"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 3 chrome version",
+      "last 3 firefox version",
+      "last 5 safari version"
+    ]
+  }
+}

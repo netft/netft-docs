@@ -1,0 +1,20 @@
+---
+sidebar_position: 1
+---
+
+# C++ API
+
+This reference covers the complete public API of netft-cpp 0.3.3. Include only headers under `include/netft` and link the installed target `netft::netft`. Other headers, namespaces, worker types, and embedded copies in applications are private implementation details.
+
+## Entry points
+
+| Need                                            | API                                                  |
+| ----------------------------------------------- | ---------------------------------------------------- |
+| Own a streaming session                         | [`netft::Client`](./client.mdx)                      |
+| Configure discovery and recovery                | [Configuration and calibration](./configuration.mdx) |
+| Consume measurements and health                 | [Samples and health](./sample-and-health.mdx)        |
+| Convert units, states, and fault codes to names | [Enumerations](./enumerations.mdx)                   |
+| Discover a sensor or classify status            | [Functions](./functions.mdx)                         |
+| Handle synchronous operation failures           | [Errors](./errors.mdx)                               |
+
+All values delivered by the native API use the sensor's discovered force and torque units. ROS SI conversion is not part of netft-cpp.

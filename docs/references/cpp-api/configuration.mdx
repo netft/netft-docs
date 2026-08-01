@@ -1,0 +1,20 @@
+---
+sidebar_position: 3
+---
+
+import cppManifest from '@site/data/reference/cpp.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Configuration and calibration
+
+Configuration is validated when constructing a client or calling `validate`. Automatic sensor discovery is authoritative unless a complete calibration override is supplied.
+
+<ApiType manifest={cppManifest} symbolId="netft.Config" />
+
+<ApiType manifest={cppManifest} symbolId="netft.Calibration" />
+
+<ApiType manifest={cppManifest} symbolId="netft.SensorConfiguration" />
+
+<ApiType manifest={cppManifest} symbolId="netft.DiscoveryOptions" />
+
+`calibration_override` must provide both finite positive scale factors and known force and torque units. A partial override is invalid. `sample_rate_limit_hz` controls application delivery, not the NetBox RDT output rate.

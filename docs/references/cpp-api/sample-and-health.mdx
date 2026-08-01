@@ -1,0 +1,16 @@
+---
+sidebar_position: 4
+---
+
+import cppManifest from '@site/data/reference/cpp.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Samples and health
+
+<ApiType manifest={cppManifest} symbolId="netft.Sample" />
+
+`received_at` uses the host monotonic clock. It supports age and interval calculations but is not a sensor-side wall-clock acquisition timestamp.
+
+<ApiType manifest={cppManifest} symbolId="netft.HealthSnapshot" />
+
+Receive, delivery, rate-limit, network-loss, callback, recovery, device, and measurement-sequence counters describe different boundaries. `last_error` is diagnostic text; branch on state, fault code, status, and counters.

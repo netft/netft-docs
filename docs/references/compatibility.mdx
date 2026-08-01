@@ -1,0 +1,43 @@
+import {ComponentVersions} from '@site/src/components/ReferenceTables';
+
+# Compatibility and releases
+
+<ComponentVersions />
+
+The listed application and integration releases use the netft-cpp 0.3.3 protocol core snapshot where applicable. They remain independently installable and versioned; users do not install netft-cpp separately for CLI, Viewer, pyNetFT wheels, or ros-netft.
+
+The snapshot version identifies shared protocol behavior, not a runtime package dependency. Updating netft-cpp does not update an installed application automatically. Use the release notes of the interface you install to determine when a newer snapshot was adopted.
+
+## Supported combinations
+
+| Interface       | Runtime compatibility boundary                                                   |
+| --------------- | -------------------------------------------------------------------------------- |
+| CLI             | Self-contained release executable; no separate C++ SDK or curl installation      |
+| Viewer          | Self-contained desktop package; no separate C++ SDK, Python, or ROS installation |
+| C++ SDK         | C++17 consumer through the installed `netft::netft` CMake target                 |
+| Python package  | A wheel matching the CPython version, operating system, and CPU architecture     |
+| ROS integration | The matching ROS distribution and its standard build or binary environment       |
+
+The components exchange sensor data through the ATI device protocols; they do not form an in-process plugin stack. Installing several of them is supported, but only one running client should own a sensor's RDT stream at a time.
+
+## Platform details
+
+- CLI releases target Linux x86_64/ARM64, macOS Intel/Apple silicon, and Windows x86_64.
+- Viewer releases provide Linux `.deb` and archives, Windows installer/archive, and universal macOS disk image/archive.
+- pyNetFT wheels target CPython 3.10–3.14. PyPy is unsupported.
+- netft-cpp source builds require CMake 3.16+, C++17, threads, and libcurl 7.63+.
+- ros-netft targets supported ROS environments on Linux. ROS 1 Noetic is source-only legacy support.
+
+Consult each release page for later patches and exact artifacts. A CI job alone does not establish a supported platform.
+
+## Version policy
+
+Each repository versions and releases independently. Patch releases are expected to preserve the documented public interface while correcting defects. Minor releases may add compatible behavior. Before a major upgrade, read that repository's release notes and migration guide where provided.
+
+Do not infer compatibility from matching version numbers across repositories. For example, pyNetFT 2.x and netft-cpp 0.3.x are different public products with different version histories even when they contain related native code.
+
+## Source builds
+
+Source support means the documented toolchain can build the repository; it does not mean every compiler, Linux distribution, package manager, or downstream embedding has been validated. When a prebuilt artifact exists, use it unless you need to modify, debug, or package the source.
+
+For reproducible problem reports, record the interface version, operating system and architecture, compiler or Python/ROS version where applicable, sensor product, and sanitized configuration. Report an artifact-specific problem to the repository that released that artifact.

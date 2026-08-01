@@ -1,0 +1,17 @@
+---
+sidebar_position: 6
+---
+
+import pythonManifest from '@site/data/reference/python.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Exceptions
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.NetFTError" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.ConfigurationError" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.DiscoveryError" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.NotConnectedError" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.SensorFaultError" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.CallbackError" />
+
+Catch the narrowest exception appropriate to the operation. `SensorFaultError` carries structured `fault_code` and final `health`; `CallbackError.__cause__` retains the callback or dispatcher exception. Exception text is diagnostic and must not be parsed as a stable interface.

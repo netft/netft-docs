@@ -1,0 +1,29 @@
+---
+sidebar_position: 2
+---
+
+# JSON and NDJSON schemas
+
+Machine output uses integer `schema_version: 1`. Unknown additional fields must be ignored so compatible additions do not break consumers. Diagnostic progress is written to stderr and is not part of JSON data.
+
+## Configuration result
+
+`netft info --format json` returns endpoint, product, calibration source and revision, two scales, and native unit labels. Scale and unit remain paired under `force` and `torque`.
+
+## Health-check result
+
+`netft check --format json` returns the result, elapsed duration, sample count, observed rate, sequence-quality counters, reconnect count, and nonzero-status count. A result can be structurally valid while the process exits 7 because a requested acceptance criterion failed.
+
+## Streaming records
+
+Monitor and recording NDJSON write one complete JSON object per line. Each line is independently parseable and contains:
+
+```text
+schema_version, timestamp or elapsed time, rdt_sequence, ft_sequence, status,
+raw_fx, raw_fy, raw_fz, raw_tx, raw_ty, raw_tz,
+fx, fy, fz, tx, ty, tz, force_unit, torque_unit
+```
+
+Monitor records additionally expose current receive rate, continuity counters, and client state. Recording records use `timestamp_utc` and `elapsed_seconds` for correlation and monotonic analysis.
+
+Do not parse human-readable text output or exception messages as a machine schema.

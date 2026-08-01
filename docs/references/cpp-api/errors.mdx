@@ -1,0 +1,13 @@
+---
+sidebar_position: 7
+---
+
+import cppManifest from '@site/data/reference/cpp.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Errors
+
+<ApiType manifest={cppManifest} symbolId="netft.DiscoveryError" />
+<ApiType manifest={cppManifest} symbolId="netft.NotConnectedError" />
+
+Invalid `Config`, `Calibration`, `DiscoveryOptions`, or operation arguments use standard validation exceptions. `DiscoveryError` reports bounded HTTP discovery failure. `NotConnectedError` reports an operation such as bias that requires a running connection. Runtime stream failures appear through `HealthSnapshot` and the selected recovery policy.

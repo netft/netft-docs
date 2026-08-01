@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "components": {
+    "netft-cpp": {
+      "version": "0.3.3",
+      "sourceTag": "v0.3.3",
+      "repository": "https://github.com/netft/netft-cpp",
+      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3"
+    },
+    "pyNetFT": {
+      "version": "2.1.0",
+      "sourceTag": "v2.1.0",
+      "repository": "https://github.com/netft/pyNetFT",
+      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.0"
+    },
+    "netft-cli": {
+      "version": "0.2.0",
+      "sourceTag": "v0.2.0",
+      "repository": "https://github.com/netft/netft-cli",
+      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.0"
+    },
+    "ros-netft": {
+      "version": "0.3.2",
+      "sourceTag": "0.3.2",
+      "repository": "https://github.com/netft/ros-netft",
+      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.2"
+    },
+    "netft-viewer": {
+      "version": "0.1.0",
+      "sourceTag": "v0.1.0",
+      "repository": "https://github.com/netft/netft-viewer",
+      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.1.0"
+    }
+  }
+}

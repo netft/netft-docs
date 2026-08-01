@@ -1,0 +1,14 @@
+---
+sidebar_position: 3
+---
+
+import pythonManifest from '@site/data/reference/python.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Configuration and calibration
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.Config" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.Calibration" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.SensorConfiguration" />
+
+These dataclasses are immutable. Validation occurs when `Config` is passed to `Client`. A calibration override is complete: both scales must be finite and positive and both units must be known.

@@ -1,0 +1,1088 @@
+{
+  "schemaVersion": 1,
+  "kind": "cpp-api",
+  "component": "netft-cpp",
+  "version": "0.3.3",
+  "sourceTag": "v0.3.3",
+  "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3",
+  "symbols": [
+    {
+      "id": "netft.Calibration",
+      "name": "Calibration",
+      "qualifiedName": "netft::Calibration",
+      "category": "struct",
+      "declaration": "struct Calibration",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [
+        {
+          "name": "counts_per_force_unit",
+          "type": "double",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "counts_per_torque_unit",
+          "type": "double",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "force_unit",
+          "type": "ForceUnit",
+          "default": "ForceUnit::Unknown",
+          "mutable": true
+        },
+        {
+          "name": "torque_unit",
+          "type": "TorqueUnit",
+          "default": "TorqueUnit::Unknown",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.CalibrationSource",
+      "name": "CalibrationSource",
+      "qualifiedName": "netft::CalibrationSource",
+      "category": "enum",
+      "declaration": "enum class CalibrationSource { Sensor, Override };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Sensor"
+        },
+        {
+          "name": "Override"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.classify_status.1",
+      "name": "classify_status",
+      "qualifiedName": "netft::classify_status",
+      "category": "function",
+      "declaration": "StatusSeverity classify_status(std::uint32_t status) noexcept",
+      "sourcePath": "include/netft/status.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "classify_status",
+          "name": "classify_status",
+          "signature": "StatusSeverity classify_status(std::uint32_t status) noexcept",
+          "returnType": "StatusSeverity",
+          "parameters": [
+            {
+              "name": "status",
+              "type": "std::uint32_t"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.Client",
+      "name": "Client",
+      "qualifiedName": "netft::Client",
+      "category": "class",
+      "declaration": "class NETFT_API Client",
+      "sourcePath": "include/netft/client.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "Client",
+          "name": "Client",
+          "signature": "explicit Client(Config config)",
+          "returnType": "",
+          "parameters": [
+            {
+              "name": "config",
+              "type": "Config"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "destructor",
+          "name": "~Client",
+          "signature": "~Client()",
+          "returnType": "",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "start",
+          "name": "start",
+          "signature": "void start(SampleCallback callback)",
+          "returnType": "void",
+          "parameters": [
+            {
+              "name": "callback",
+              "type": "SampleCallback"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "stop",
+          "name": "stop",
+          "signature": "void stop() noexcept",
+          "returnType": "void",
+          "parameters": [],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        },
+        {
+          "id": "bias",
+          "name": "bias",
+          "signature": "void bias()",
+          "returnType": "void",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "wait_for_first_sample",
+          "name": "wait_for_first_sample",
+          "signature": "bool wait_for_first_sample(std::chrono::duration<double> timeout)",
+          "returnType": "bool",
+          "parameters": [
+            {
+              "name": "timeout",
+              "type": "std::chrono::duration<double>"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "faulted",
+          "name": "faulted",
+          "signature": "[[nodiscard]] bool faulted() const noexcept",
+          "returnType": "bool",
+          "parameters": [],
+          "qualifiers": ["const", "noexcept"],
+          "throws": []
+        },
+        {
+          "id": "fault_code",
+          "name": "fault_code",
+          "signature": "[[nodiscard]] FaultCode fault_code() const noexcept",
+          "returnType": "FaultCode",
+          "parameters": [],
+          "qualifiers": ["const", "noexcept"],
+          "throws": []
+        },
+        {
+          "id": "health",
+          "name": "health",
+          "signature": "[[nodiscard]] HealthSnapshot health() const",
+          "returnType": "HealthSnapshot",
+          "parameters": [],
+          "qualifiers": ["const"],
+          "throws": []
+        },
+        {
+          "id": "latest_sample",
+          "name": "latest_sample",
+          "signature": "[[nodiscard]] std::optional<Sample> latest_sample() const",
+          "returnType": "std::optional<Sample>",
+          "parameters": [],
+          "qualifiers": ["const"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.ClientState",
+      "name": "ClientState",
+      "qualifiedName": "netft::ClientState",
+      "category": "enum",
+      "declaration": "enum class ClientState { Stopped, Connecting, Streaming, Backoff, Faulted };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Stopped"
+        },
+        {
+          "name": "Connecting"
+        },
+        {
+          "name": "Streaming"
+        },
+        {
+          "name": "Backoff"
+        },
+        {
+          "name": "Faulted"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.Config",
+      "name": "Config",
+      "qualifiedName": "netft::Config",
+      "category": "struct",
+      "declaration": "struct Config",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [
+        {
+          "name": "sensor_host",
+          "type": "std::string",
+          "default": "\"192.168.1.1\"",
+          "mutable": true
+        },
+        {
+          "name": "rdt_port",
+          "type": "int",
+          "default": "49152",
+          "mutable": true
+        },
+        {
+          "name": "http_port",
+          "type": "int",
+          "default": "80",
+          "mutable": true
+        },
+        {
+          "name": "receive_timeout",
+          "type": "std::chrono::duration<double>",
+          "default": "0.1",
+          "mutable": true
+        },
+        {
+          "name": "configuration_connect_timeout",
+          "type": "std::chrono::duration<double>",
+          "default": "0.5",
+          "mutable": true
+        },
+        {
+          "name": "configuration_timeout",
+          "type": "std::chrono::duration<double>",
+          "default": "1.0",
+          "mutable": true
+        },
+        {
+          "name": "reconnect_initial_delay",
+          "type": "std::chrono::duration<double>",
+          "default": "0.25",
+          "mutable": true
+        },
+        {
+          "name": "reconnect_max_delay",
+          "type": "std::chrono::duration<double>",
+          "default": "5.0",
+          "mutable": true
+        },
+        {
+          "name": "sample_rate_limit_hz",
+          "type": "double",
+          "default": "0.0",
+          "mutable": true
+        },
+        {
+          "name": "deliver_samples_with_error_status",
+          "type": "bool",
+          "default": "false",
+          "mutable": true
+        },
+        {
+          "name": "recovery_policy",
+          "type": "RecoveryPolicy",
+          "default": "RecoveryPolicy::Reconnect",
+          "mutable": true
+        },
+        {
+          "name": "calibration_override",
+          "type": "std::optional<Calibration>",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.decode_status.1",
+      "name": "decode_status",
+      "qualifiedName": "netft::decode_status",
+      "category": "function",
+      "declaration": "std::string decode_status(std::uint32_t status)",
+      "sourcePath": "include/netft/status.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "decode_status",
+          "name": "decode_status",
+          "signature": "std::string decode_status(std::uint32_t status)",
+          "returnType": "std::string",
+          "parameters": [
+            {
+              "name": "status",
+              "type": "std::uint32_t"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.discover_sensor.1",
+      "name": "discover_sensor",
+      "qualifiedName": "netft::discover_sensor",
+      "category": "function",
+      "declaration": "SensorConfiguration discover_sensor(const DiscoveryOptions &options)",
+      "sourcePath": "include/netft/discovery.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "discover_sensor",
+          "name": "discover_sensor",
+          "signature": "SensorConfiguration discover_sensor(const DiscoveryOptions &options)",
+          "returnType": "SensorConfiguration",
+          "parameters": [
+            {
+              "name": "options",
+              "type": "const DiscoveryOptions &"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.DiscoveryError",
+      "name": "DiscoveryError",
+      "qualifiedName": "netft::DiscoveryError",
+      "category": "exception",
+      "declaration": "class NETFT_API DiscoveryError : public std::runtime_error",
+      "sourcePath": "include/netft/discovery.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["std::runtime_error"]
+    },
+    {
+      "id": "netft.DiscoveryOptions",
+      "name": "DiscoveryOptions",
+      "qualifiedName": "netft::DiscoveryOptions",
+      "category": "struct",
+      "declaration": "struct DiscoveryOptions",
+      "sourcePath": "include/netft/discovery.hpp",
+      "fields": [
+        {
+          "name": "sensor_host",
+          "type": "std::string",
+          "default": "\"192.168.1.1\"",
+          "mutable": true
+        },
+        {
+          "name": "http_port",
+          "type": "int",
+          "default": "80",
+          "mutable": true
+        },
+        {
+          "name": "connect_timeout",
+          "type": "std::chrono::duration<double>",
+          "default": "0.5",
+          "mutable": true
+        },
+        {
+          "name": "total_timeout",
+          "type": "std::chrono::duration<double>",
+          "default": "1.0",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.FaultCode",
+      "name": "FaultCode",
+      "qualifiedName": "netft::FaultCode",
+      "category": "enum",
+      "declaration": "enum class FaultCode { None, SensorConfiguration, Timeout, Socket, SeriousStatus, FtStall, FtBackward, MalformedStorm, Callback };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "None"
+        },
+        {
+          "name": "SensorConfiguration"
+        },
+        {
+          "name": "Timeout"
+        },
+        {
+          "name": "Socket"
+        },
+        {
+          "name": "SeriousStatus"
+        },
+        {
+          "name": "FtStall"
+        },
+        {
+          "name": "FtBackward"
+        },
+        {
+          "name": "MalformedStorm"
+        },
+        {
+          "name": "Callback"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.force_unit_from_string.1",
+      "name": "force_unit_from_string",
+      "qualifiedName": "netft::force_unit_from_string",
+      "category": "function",
+      "declaration": "std::optional<ForceUnit> force_unit_from_string(std::string_view value) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "force_unit_from_string",
+          "name": "force_unit_from_string",
+          "signature": "std::optional<ForceUnit> force_unit_from_string(std::string_view value) noexcept",
+          "returnType": "std::optional<ForceUnit>",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "std::string_view"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.ForceUnit",
+      "name": "ForceUnit",
+      "qualifiedName": "netft::ForceUnit",
+      "category": "enum",
+      "declaration": "enum class ForceUnit { Unknown, PoundForce, Newton, KiloPoundForce, KiloNewton, KilogramForce };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Unknown"
+        },
+        {
+          "name": "PoundForce"
+        },
+        {
+          "name": "Newton"
+        },
+        {
+          "name": "KiloPoundForce"
+        },
+        {
+          "name": "KiloNewton"
+        },
+        {
+          "name": "KilogramForce"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.HealthSnapshot",
+      "name": "HealthSnapshot",
+      "qualifiedName": "netft::HealthSnapshot",
+      "category": "struct",
+      "declaration": "struct HealthSnapshot",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [
+        {
+          "name": "state",
+          "type": "ClientState",
+          "default": "ClientState::Stopped",
+          "mutable": true
+        },
+        {
+          "name": "fault_code",
+          "type": "FaultCode",
+          "default": "FaultCode::None",
+          "mutable": true
+        },
+        {
+          "name": "sensor_host",
+          "type": "std::string",
+          "mutable": true
+        },
+        {
+          "name": "rdt_port",
+          "type": "int",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "sensor_configuration",
+          "type": "std::optional<SensorConfiguration>",
+          "mutable": true
+        },
+        {
+          "name": "last_rdt_sequence",
+          "type": "std::optional<std::uint32_t>",
+          "mutable": true
+        },
+        {
+          "name": "last_ft_sequence",
+          "type": "std::optional<std::uint32_t>",
+          "mutable": true
+        },
+        {
+          "name": "last_status",
+          "type": "std::uint32_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "receive_rate_hz",
+          "type": "double",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "delivery_rate_hz",
+          "type": "double",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "received_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "delivered_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "rate_limited_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "device_error_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "warning_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "lost_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "duplicate_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "out_of_order_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "malformed_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "reconnect_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "timeout_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "callback_error_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "ft_stall_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "ft_backward_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "ft_restart_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "calibration_change_count",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "last_record_age",
+          "type": "std::optional<std::chrono::duration<double>>",
+          "mutable": true
+        },
+        {
+          "name": "last_error",
+          "type": "std::string",
+          "mutable": true
+        },
+        {
+          "name": "last_ft_progress",
+          "type": "std::string",
+          "default": "\"unknown\"",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.NotConnectedError",
+      "name": "NotConnectedError",
+      "qualifiedName": "netft::NotConnectedError",
+      "category": "exception",
+      "declaration": "class NETFT_API NotConnectedError : public std::runtime_error",
+      "sourcePath": "include/netft/client.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["std::runtime_error"]
+    },
+    {
+      "id": "netft.RecoveryPolicy",
+      "name": "RecoveryPolicy",
+      "qualifiedName": "netft::RecoveryPolicy",
+      "category": "enum",
+      "declaration": "enum class RecoveryPolicy { Reconnect, FailStop };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Reconnect"
+        },
+        {
+          "name": "FailStop"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.Sample",
+      "name": "Sample",
+      "qualifiedName": "netft::Sample",
+      "category": "struct",
+      "declaration": "struct Sample",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [
+        {
+          "name": "rdt_sequence",
+          "type": "std::uint32_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "ft_sequence",
+          "type": "std::uint32_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "status",
+          "type": "std::uint32_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "raw_wrench",
+          "type": "std::array<std::int32_t, 6>",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "force",
+          "type": "std::array<double, 3>",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "torque",
+          "type": "std::array<double, 3>",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "force_unit",
+          "type": "ForceUnit",
+          "default": "ForceUnit::Unknown",
+          "mutable": true
+        },
+        {
+          "name": "torque_unit",
+          "type": "TorqueUnit",
+          "default": "TorqueUnit::Unknown",
+          "mutable": true
+        },
+        {
+          "name": "configuration_revision",
+          "type": "std::uint64_t",
+          "default": "",
+          "mutable": true
+        },
+        {
+          "name": "received_at",
+          "type": "std::chrono::steady_clock::time_point",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.SensorConfiguration",
+      "name": "SensorConfiguration",
+      "qualifiedName": "netft::SensorConfiguration",
+      "category": "struct",
+      "declaration": "struct SensorConfiguration",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [
+        {
+          "name": "product_name",
+          "type": "std::string",
+          "mutable": true
+        },
+        {
+          "name": "calibration",
+          "type": "Calibration",
+          "mutable": true
+        },
+        {
+          "name": "source",
+          "type": "CalibrationSource",
+          "default": "CalibrationSource::Sensor",
+          "mutable": true
+        },
+        {
+          "name": "revision",
+          "type": "std::uint64_t",
+          "default": "1",
+          "mutable": true
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.StatusSeverity",
+      "name": "StatusSeverity",
+      "qualifiedName": "netft::StatusSeverity",
+      "category": "enum",
+      "declaration": "enum class StatusSeverity { Ok, Warn, Error };",
+      "sourcePath": "include/netft/status.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Ok"
+        },
+        {
+          "name": "Warn"
+        },
+        {
+          "name": "Error"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.to_string.1",
+      "name": "to_string",
+      "qualifiedName": "netft::to_string",
+      "category": "function",
+      "declaration": "std::string_view to_string(ForceUnit unit) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "to_string",
+          "name": "to_string",
+          "signature": "std::string_view to_string(ForceUnit unit) noexcept",
+          "returnType": "std::string_view",
+          "parameters": [
+            {
+              "name": "unit",
+              "type": "ForceUnit"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.to_string.2",
+      "name": "to_string",
+      "qualifiedName": "netft::to_string",
+      "category": "function",
+      "declaration": "std::string_view to_string(TorqueUnit unit) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "to_string",
+          "name": "to_string",
+          "signature": "std::string_view to_string(TorqueUnit unit) noexcept",
+          "returnType": "std::string_view",
+          "parameters": [
+            {
+              "name": "unit",
+              "type": "TorqueUnit"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.to_string.3",
+      "name": "to_string",
+      "qualifiedName": "netft::to_string",
+      "category": "function",
+      "declaration": "std::string_view to_string(ClientState state) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "to_string",
+          "name": "to_string",
+          "signature": "std::string_view to_string(ClientState state) noexcept",
+          "returnType": "std::string_view",
+          "parameters": [
+            {
+              "name": "state",
+              "type": "ClientState"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.to_string.4",
+      "name": "to_string",
+      "qualifiedName": "netft::to_string",
+      "category": "function",
+      "declaration": "std::string_view to_string(FaultCode code) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "to_string",
+          "name": "to_string",
+          "signature": "std::string_view to_string(FaultCode code) noexcept",
+          "returnType": "std::string_view",
+          "parameters": [
+            {
+              "name": "code",
+              "type": "FaultCode"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.torque_unit_from_string.1",
+      "name": "torque_unit_from_string",
+      "qualifiedName": "netft::torque_unit_from_string",
+      "category": "function",
+      "declaration": "std::optional<TorqueUnit> torque_unit_from_string(std::string_view value) noexcept",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "torque_unit_from_string",
+          "name": "torque_unit_from_string",
+          "signature": "std::optional<TorqueUnit> torque_unit_from_string(std::string_view value) noexcept",
+          "returnType": "std::optional<TorqueUnit>",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "std::string_view"
+            }
+          ],
+          "qualifiers": ["noexcept"],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.TorqueUnit",
+      "name": "TorqueUnit",
+      "qualifiedName": "netft::TorqueUnit",
+      "category": "enum",
+      "declaration": "enum class TorqueUnit { Unknown, PoundForceInch, PoundForceFoot, NewtonMeter, NewtonMillimeter, KilogramForceCentimeter, KiloNewtonMeter };",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "Unknown"
+        },
+        {
+          "name": "PoundForceInch"
+        },
+        {
+          "name": "PoundForceFoot"
+        },
+        {
+          "name": "NewtonMeter"
+        },
+        {
+          "name": "NewtonMillimeter"
+        },
+        {
+          "name": "KilogramForceCentimeter"
+        },
+        {
+          "name": "KiloNewtonMeter"
+        }
+      ],
+      "bases": []
+    },
+    {
+      "id": "netft.validate.1",
+      "name": "validate",
+      "qualifiedName": "netft::validate",
+      "category": "function",
+      "declaration": "void validate(const Calibration &calibration)",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "validate",
+          "name": "validate",
+          "signature": "void validate(const Calibration &calibration)",
+          "returnType": "void",
+          "parameters": [
+            {
+              "name": "calibration",
+              "type": "const Calibration &"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "netft.validate.2",
+      "name": "validate",
+      "qualifiedName": "netft::validate",
+      "category": "function",
+      "declaration": "void validate(const Config &config)",
+      "sourcePath": "include/netft/types.hpp",
+      "fields": [],
+      "methods": [
+        {
+          "id": "validate",
+          "name": "validate",
+          "signature": "void validate(const Config &config)",
+          "returnType": "void",
+          "parameters": [
+            {
+              "name": "config",
+              "type": "const Config &"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    }
+  ]
+}

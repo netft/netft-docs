@@ -1,0 +1,12 @@
+---
+sidebar_position: 6
+---
+
+import cliManifest from '@site/data/reference/cli.json';
+import {Command} from '@site/src/components/Reference';
+
+# `netft bias`
+
+Sends software bias only after interactive confirmation or `--yes`. RDT provides no acknowledgement; a successful command means the datagram was sent, not that the resulting zero has been verified.
+
+<Command manifest={cliManifest} commandId="bias" />

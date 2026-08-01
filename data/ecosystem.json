@@ -1,0 +1,120 @@
+{
+  "categories": [
+    {
+      "id": "applications",
+      "label": "Applications",
+      "summary": "Ready-to-use interfaces for terminal and desktop workflows.",
+      "offerings": [
+        {
+          "id": "netft-cli",
+          "name": "Net F/T CLI",
+          "summary": "Inspect a sensor, verify connectivity, automate checks, and record from a terminal.",
+          "audience": "Operators and automation",
+          "docsPath": "tutorials/cli/inspect-and-validate",
+          "repository": "https://github.com/netft/netft-cli",
+          "stableVersion": "0.2.0",
+          "platforms": ["Linux", "macOS", "Windows"],
+          "installMethods": ["release", "source"],
+          "documentationOwner": "netft-docs",
+          "priority": 1
+        },
+        {
+          "id": "netft-viewer",
+          "name": "Net F/T Viewer",
+          "summary": "Visualize six-axis measurements and record sessions without writing code.",
+          "audience": "Lab and field users",
+          "docsPath": "tutorials/viewer/connect-and-inspect",
+          "repository": "https://github.com/netft/netft-viewer",
+          "stableVersion": "0.1.0",
+          "platforms": ["Linux", "macOS", "Windows"],
+          "installMethods": ["release", "source"],
+          "documentationOwner": "netft-docs",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": "sdks",
+      "label": "SDKs",
+      "summary": "Native and Python libraries for application development.",
+      "offerings": [
+        {
+          "id": "netft-cpp",
+          "name": "C++ SDK",
+          "summary": "Integrate configuration discovery, streaming, health, and recovery in C++17.",
+          "audience": "C++ developers",
+          "docsPath": "tutorials/sdks/cpp",
+          "repository": "https://github.com/netft/netft-cpp",
+          "stableVersion": "0.3.3",
+          "platforms": ["Linux", "macOS", "Windows"],
+          "installMethods": ["source"],
+          "documentationOwner": "netft-docs",
+          "priority": 1
+        },
+        {
+          "id": "pynetft",
+          "name": "Python package",
+          "summary": "Build typed synchronous Python applications on the shared native core.",
+          "audience": "Python developers",
+          "docsPath": "tutorials/sdks/python",
+          "repository": "https://github.com/netft/pyNetFT",
+          "stableVersion": "2.1.0",
+          "platforms": ["Linux", "macOS", "Windows"],
+          "installMethods": ["PyPI", "source"],
+          "documentationOwner": "netft-docs",
+          "priority": 2
+        }
+      ]
+    },
+    {
+      "id": "robotics",
+      "label": "Robotics",
+      "summary": "ROS-native publishing and controller integration.",
+      "offerings": [
+        {
+          "id": "ros-netft",
+          "name": "ROS integration",
+          "summary": "Publish wrench data and connect the sensor to ROS and ros2_control.",
+          "audience": "Robotics developers",
+          "docsPath": "tutorials/ros/standalone",
+          "repository": "https://github.com/netft/ros-netft",
+          "stableVersion": "0.3.2",
+          "platforms": ["Linux"],
+          "installMethods": ["ROS", "source"],
+          "documentationOwner": "netft-docs",
+          "priority": 1
+        }
+      ]
+    }
+  ],
+  "workflows": [
+    {
+      "id": "diagnose",
+      "label": "Diagnose or automate",
+      "summary": "Commission a sensor, verify the network path, or integrate checks into scripts.",
+      "offeringIds": ["netft-cli"],
+      "priority": 1
+    },
+    {
+      "id": "visualize",
+      "label": "Visualize and record",
+      "summary": "Inspect live measurements, health, and buffered CSV recording interactively.",
+      "offeringIds": ["netft-viewer"],
+      "priority": 2
+    },
+    {
+      "id": "develop",
+      "label": "Build an application",
+      "summary": "Choose the native C++ SDK or the synchronous Python package.",
+      "offeringIds": ["netft-cpp", "pynetft"],
+      "priority": 3
+    },
+    {
+      "id": "integrate",
+      "label": "Integrate a robot",
+      "summary": "Publish ROS wrench data or connect to a ros2_control controller manager.",
+      "offeringIds": ["ros-netft"],
+      "priority": 4
+    }
+  ]
+}

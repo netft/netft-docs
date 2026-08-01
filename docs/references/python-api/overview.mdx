@@ -1,0 +1,27 @@
+---
+sidebar_position: 1
+---
+
+# Python API
+
+import pythonManifest from '@site/data/reference/python.json';
+import {ApiType} from '@site/src/components/Reference';
+
+This reference covers the public names exported by pyNetFT 2.1.0. Import them from `pynetft`; `pynetft._native` is private and is not a compatibility surface.
+
+| Need                                   | API                                                  |
+| -------------------------------------- | ---------------------------------------------------- |
+| Stream through an iterator or callback | [`Client`](./client.mdx)                             |
+| Configure connection and calibration   | [Configuration and calibration](./configuration.mdx) |
+| Read immutable data models             | [Samples and health](./sample-and-health.mdx)        |
+| Serialize stable states and units      | [Enumerations](./enumerations.mdx)                   |
+| Handle structured failures             | [Exceptions](./exceptions.mdx)                       |
+
+The deprecated `NetFT` and `Response` compatibility types remain for 1.x migration during the 2.x series. New code must use `Client`, `Sample`, and `Health`.
+
+## Deprecated compatibility API
+
+These types are scheduled for removal in pyNetFT 3.0. They are documented only to support an explicit migration.
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.NetFT" />
+<ApiType manifest={pythonManifest} symbolId="pynetft.Response" />

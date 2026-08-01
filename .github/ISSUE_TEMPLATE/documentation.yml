@@ -1,0 +1,53 @@
+name: Documentation issue
+description: Report incorrect, missing, or unclear Net F/T documentation.
+title: 'docs: '
+body:
+  - type: markdown
+    attributes:
+      value: >-
+        Use the owning project's issue tracker for runtime defects or API
+        changes. Do not include private sensor addresses or sensitive data.
+
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: Link to the affected page or name the missing topic.
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: Explain what is incorrect, missing, or difficult to follow.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source
+    attributes:
+      label: Supporting source
+      description: Link the owning project documentation or other primary source when available.
+
+  - type: dropdown
+    id: project
+    attributes:
+      label: Related project
+      options:
+        - Shared documentation
+        - netft-cli
+        - Net F/T Viewer
+        - pyNetFT
+        - netft-cpp
+        - ros-netft
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Sensitive information
+      options:
+        - label: I removed private addresses, credentials, recordings, and personal data.
+          required: true

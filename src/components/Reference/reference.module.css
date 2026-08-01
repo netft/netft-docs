@@ -1,0 +1,92 @@
+.apiType {
+  margin-top: 1.5rem;
+}
+
+.metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: center;
+  margin: -0.25rem 0 1rem;
+  color: var(--netft-muted);
+  font-size: 0.875rem;
+}
+
+.signature {
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableScroll table {
+  display: table;
+  width: 100%;
+  min-width: 34rem;
+}
+
+@media (max-width: 576px) {
+  .tableScroll {
+    overflow: visible;
+  }
+
+  .tableScroll table,
+  .tableScroll tbody,
+  .tableScroll tr,
+  .tableScroll td {
+    display: block;
+    width: 100%;
+  }
+
+  .tableScroll table {
+    min-width: 0;
+  }
+
+  .tableScroll thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .tableScroll tr {
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--netft-rule);
+  }
+
+  .tableScroll td {
+    display: grid;
+    grid-template-columns: minmax(6rem, 35%) minmax(0, 1fr);
+    gap: 0.75rem;
+    padding: 0.35rem 0;
+    border: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .tableScroll td::before {
+    content: attr(data-label);
+    color: var(--netft-muted);
+    font-size: 0.8125rem;
+    font-weight: 600;
+  }
+}
+
+.member {
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--netft-rule);
+}
+
+.member h4 code,
+.apiType h2 code {
+  color: inherit;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}

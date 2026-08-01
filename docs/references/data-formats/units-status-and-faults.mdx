@@ -1,0 +1,48 @@
+---
+sidebar_position: 4
+---
+
+# Units, status, and faults
+
+## Native units
+
+| Force enum      | Serialized label |
+| --------------- | ---------------- |
+| Pound force     | `lbf`            |
+| Newton          | `N`              |
+| Kilopound force | `klbf`           |
+| Kilonewton      | `kN`             |
+| Kilogram force  | `kgf`            |
+
+| Torque enum               | Serialized label |
+| ------------------------- | ---------------- |
+| Pound-force inch          | `lbf-in`         |
+| Pound-force foot          | `lbf-ft`         |
+| Newton-meter              | `N-m`            |
+| Newton-millimeter         | `N-mm`           |
+| Kilogram-force centimeter | `kgf-cm`         |
+| Kilonewton-meter          | `kN-m`           |
+
+`Unknown` serializes as `unknown`. ROS wrench interfaces use N and N·m regardless of native device selection.
+
+## Device status
+
+`0x00000000` is healthy. `0x80010000` is classified as a monitor-condition warning by the Net F/T software. Other nonzero values are serious device conditions and are decoded bit-by-bit for diagnostics.
+
+Device status belongs to an RDT record. It is separate from receiver faults such as configuration failure, socket error, timeout, sequence stall, backward sequence, or malformed-packet storm.
+
+## Receiver fault codes
+
+| Fault                  | Meaning                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `none`                 | No terminal receiver fault                             |
+| `sensor_configuration` | Configuration discovery or validation failed           |
+| `timeout`              | No valid record arrived within the receive timeout     |
+| `socket`               | UDP socket setup or operation failed                   |
+| `serious_status`       | The device reported a serious status                   |
+| `ft_stall`             | Device measurement sequence stopped progressing        |
+| `ft_backward`          | Device measurement sequence moved implausibly backward |
+| `malformed_storm`      | Malformed records exceeded the accepted window         |
+| `callback`             | Native sample callback failed                          |
+
+Reconnect policy reports these events and attempts bounded recovery. Fail-stop policy latches the first fault and requires supervisory restart.

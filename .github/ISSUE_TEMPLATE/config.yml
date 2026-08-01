@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/netft/netft-docs/security/advisories/new
+    about: Report suspected vulnerabilities privately.
+  - name: Project-specific support
+    url: https://github.com/netft
+    about: Select the repository that owns the affected tool or API.

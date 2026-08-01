@@ -1,0 +1,31 @@
+---
+sidebar_position: 1
+---
+
+# Native sample model
+
+Native C++ and Python samples preserve the sensor's discovered units. Every sample describes one accepted RDT record.
+
+| Field                    | Type                        | Contract                                                                           |
+| ------------------------ | --------------------------- | ---------------------------------------------------------------------------------- |
+| `rdt_sequence`           | unsigned 32-bit / `int`     | Request-stream sequence used for loss, duplicate, and ordering checks              |
+| `ft_sequence`            | unsigned 32-bit / `int`     | Device measurement sequence used for progress, stall, restart, and backward checks |
+| `status`                 | unsigned 32-bit / `int`     | ATI device status word                                                             |
+| `raw_wrench`             | six signed 32-bit counts    | `(Fx, Fy, Fz, Tx, Ty, Tz)` before scaling                                          |
+| `force`                  | three floating-point values | `(Fx, Fy, Fz)` in `force_unit`                                                     |
+| `torque`                 | three floating-point values | `(Tx, Ty, Tz)` in `torque_unit`                                                    |
+| `force_unit`             | force-unit enum             | Unit paired with the discovered force scale                                        |
+| `torque_unit`            | torque-unit enum            | Unit paired with the discovered torque scale                                       |
+| `configuration_revision` | unsigned 64-bit / `int`     | Configuration identity used to scale the record                                    |
+| receive timestamp        | monotonic host time         | Receipt time for freshness and interval calculations                               |
+
+The device record has no acquisition wall-clock timestamp. Do not convert the monotonic receive timestamp into UTC. Record a separate system-clock timestamp when cross-system correlation is required.
+
+## Scaling
+
+```text
+force[i]  = raw_wrench[i]     / counts_per_force_unit
+torque[i] = raw_wrench[i + 3] / counts_per_torque_unit
+```
+
+The result uses the unit stored with its scale. ROS converts these native values to N and N·m before publishing.

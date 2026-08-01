@@ -1,0 +1,40 @@
+---
+sidebar_position: 3
+---
+
+# CSV schemas
+
+## CLI monitor
+
+```text
+host,schema_version,elapsed_seconds,rdt_sequence,ft_sequence,status,
+raw_fx,raw_fy,raw_fz,raw_tx,raw_ty,raw_tz,
+fx,fy,fz,tx,ty,tz,force_unit,torque_unit,receive_rate_hz,
+lost_count,duplicate_count,out_of_order_count,state
+```
+
+Monitor CSV is observation output. Its bounded presentation rate can be lower than the native receive rate.
+
+## CLI recording
+
+```text
+schema_version,timestamp_utc,elapsed_seconds,rdt_sequence,ft_sequence,status,
+raw_fx,raw_fy,raw_fz,raw_tx,raw_ty,raw_tz,
+fx,fy,fz,tx,ty,tz,force_unit,torque_unit
+```
+
+`timestamp_utc` is for cross-system correlation. `elapsed_seconds` is the monotonic capture timeline and should be used for interval analysis.
+
+## Viewer recording
+
+```text
+host_receive_timestamp_ns,elapsed_recording_time_ns,
+rdt_sequence,ft_sequence,status,configuration_revision,
+raw_fx,raw_fy,raw_fz,raw_tx,raw_ty,raw_tz,
+force_x,force_y,force_z,torque_x,torque_y,torque_z,
+force_unit,torque_unit
+```
+
+`host_receive_timestamp_ns` uses the system clock. `elapsed_recording_time_ns` is monotonic from recording start. Configuration revision and unit columns keep calibration changes visible across reconnects.
+
+CLI and Viewer recorders write a temporary `.partial` file and promote it only after a clean queue drain and flush. A partial file is not proof of a complete capture.

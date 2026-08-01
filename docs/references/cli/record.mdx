@@ -1,0 +1,12 @@
+---
+sidebar_position: 5
+---
+
+import cliManifest from '@site/data/reference/cli.json';
+import {Command} from '@site/src/components/Reference';
+
+# `netft record`
+
+Records every accepted sample to CSV or NDJSON. The destination must not exist. Capture writes a `.partial` path and promotes it only after a clean drain and flush; exit code 8 means integrity was not guaranteed.
+
+<Command manifest={cliManifest} commandId="record" />

@@ -1,0 +1,14 @@
+---
+sidebar_position: 3
+---
+
+import rosManifest from '@site/data/reference/ros.json';
+import {RosInterface} from '@site/src/components/Reference';
+
+# Diagnostics and lifecycle
+
+<RosInterface manifest={rosManifest} section="diagnostics" />
+
+Standalone nodes reconnect with bounded backoff. The ros2_control plugin is fail-stop: a fatal configuration, transport, timeout, sequence, malformed-stream, or device fault latches its first cause, writes NaN to all state interfaces, and makes `read()` return `ERROR`.
+
+After correcting the cause, recover through the applicable active → inactive → unconfigured → inactive → active path. The fault clears during configure, not during deactivate.

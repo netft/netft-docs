@@ -1,0 +1,34 @@
+[
+  {
+    "id": "ati-netft-product",
+    "title": "Net F/T",
+    "publisher": "ATI Industrial Automation",
+    "documentNumber": "product page",
+    "url": "https://www.ati-ia.com/products/ft/ft_NetFT.aspx",
+    "accessed": "2026-08-01"
+  },
+  {
+    "id": "ati-netft-software",
+    "title": "ATI Net F/T Software",
+    "publisher": "ATI Industrial Automation",
+    "documentNumber": "software page",
+    "url": "https://www.ati-ia.com/Products/ft/software/net_ft_software.aspx",
+    "accessed": "2026-08-01"
+  },
+  {
+    "id": "ati-netft-documentation",
+    "title": "F/T System Documentation and Software",
+    "publisher": "ATI Industrial Automation",
+    "documentNumber": "documentation index",
+    "url": "https://www.ati-ia.com/Products/ft/Software/SysSoftwareTemplates.aspx?family=6",
+    "accessed": "2026-08-01"
+  },
+  {
+    "id": "ati-netft-manual",
+    "title": "Net F/T Network Force/Torque Sensor System Manual",
+    "publisher": "ATI Industrial Automation",
+    "documentNumber": "9620-05-NET FT-23",
+    "url": "https://www.ati-ia.com/app_content/Documents/9620-05-Net%20FT.pdf",
+    "accessed": "2026-08-01"
+  }
+]

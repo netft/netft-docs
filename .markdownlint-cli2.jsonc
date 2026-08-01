@@ -1,0 +1,27 @@
+{
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD033": {
+      "allowed_elements": [
+        "a",
+        "br",
+        "details",
+        "summary",
+        "ApiType",
+        "Command",
+        "ComponentVersions",
+        "OfficialSources",
+        "RosInterface",
+      ],
+    },
+    "MD041": false,
+  },
+  "globs": [
+    "**/*.md",
+    "**/*.mdx",
+    "!node_modules/**",
+    "!build/**",
+    "!.superpowers/**",
+  ],
+}

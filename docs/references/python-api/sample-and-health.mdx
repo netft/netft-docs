@@ -1,0 +1,16 @@
+---
+sidebar_position: 4
+---
+
+import pythonManifest from '@site/data/reference/python.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Samples and health
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.Sample" />
+
+`wrench` is the read-only six-value `(Fx, Fy, Fz, Tx, Ty, Tz)` property. `received_at_ns` is a host monotonic timestamp.
+
+<ApiType manifest={pythonManifest} symbolId="pynetft.Health" />
+
+`python_queue_dropped_count` is application-delivery pressure, not UDP packet loss. `Health.empty()` constructs a stopped zero-counter snapshot for initialization and testing.

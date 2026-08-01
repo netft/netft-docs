@@ -1,0 +1,30 @@
+---
+sidebar_position: 2
+---
+
+import cppManifest from '@site/data/reference/cpp.json';
+import {ApiType} from '@site/src/components/Reference';
+
+# Client
+
+`netft::Client` owns configuration discovery, one RDT session, recovery, health accounting, and sample delivery. Constructing it validates configuration but does not start network activity.
+
+<ApiType manifest={cppManifest} symbolId="netft.Client" />
+
+## Lifecycle and concurrency
+
+Call `start()` once for a run and keep its callback bounded. The callback executes on the native receive worker, so blocking storage or application work must be transferred to an application-owned bounded queue. `stop()` is idempotent and non-throwing.
+
+Destruction normally waits for worker shutdown. Destruction initiated by the sample callback cannot join its own thread, so shutdown and storage reclamation are deferred; the callback must not access the client after initiating destruction.
+
+The type is neither copyable nor movable. `latest_sample()` does not consume delivery, and `health()` returns a point-in-time snapshot. Use structured state, fault code, status, and counters for decisions rather than parsing `last_error`.
+
+## Readiness
+
+`wait_for_first_sample()` is a bounded readiness check for the current run. A `false` result establishes only that a sample was not observed before the boundary; inspect `faulted()`, `fault_code()`, and `health()` to distinguish timeout, stop, and a terminal fail-stop fault.
+
+## See also
+
+- [C++ SDK tutorial](../../tutorials/sdks/cpp.md)
+- [Configuration and calibration](./configuration.mdx)
+- [Native sample model](../data-formats/native-sample.mdx)

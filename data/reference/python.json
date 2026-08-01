@@ -1,0 +1,1024 @@
+{
+  "schemaVersion": 1,
+  "kind": "python-api",
+  "component": "pyNetFT",
+  "version": "2.1.0",
+  "sourceTag": "v2.1.0",
+  "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.0",
+  "symbols": [
+    {
+      "id": "pynetft.Calibration",
+      "name": "Calibration",
+      "qualifiedName": "pynetft.Calibration",
+      "category": "dataclass",
+      "declaration": "class Calibration",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import Calibration",
+      "fields": [
+        {
+          "name": "counts_per_force_unit",
+          "type": "float",
+          "mutable": false
+        },
+        {
+          "name": "counts_per_torque_unit",
+          "type": "float",
+          "mutable": false
+        },
+        {
+          "name": "force_unit",
+          "type": "ForceUnit",
+          "mutable": false
+        },
+        {
+          "name": "torque_unit",
+          "type": "TorqueUnit",
+          "mutable": false
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.CalibrationSource",
+      "name": "CalibrationSource",
+      "qualifiedName": "pynetft.CalibrationSource",
+      "category": "enum",
+      "declaration": "class CalibrationSource(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import CalibrationSource",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "SENSOR",
+          "value": "sensor"
+        },
+        {
+          "name": "OVERRIDE",
+          "value": "override"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    },
+    {
+      "id": "pynetft.CallbackError",
+      "name": "CallbackError",
+      "qualifiedName": "pynetft.CallbackError",
+      "category": "exception",
+      "declaration": "class CallbackError(NetFTError)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import CallbackError",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["NetFTError"]
+    },
+    {
+      "id": "pynetft.Client",
+      "name": "Client",
+      "qualifiedName": "pynetft.Client",
+      "category": "class",
+      "declaration": "class Client",
+      "sourcePath": "src/pynetft/client.py",
+      "importPath": "from pynetft import Client",
+      "fields": [],
+      "methods": [
+        {
+          "id": "Client",
+          "name": "Client",
+          "signature": "__init__(config: Config, queue_size: int = 1, callback: Callable[[Sample], None] | None = None) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "config",
+              "type": "Config"
+            },
+            {
+              "name": "queue_size",
+              "type": "int",
+              "default": "1"
+            },
+            {
+              "name": "callback",
+              "type": "Callable[[Sample], None] | None",
+              "default": "None"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "start",
+          "name": "start",
+          "signature": "start(callback: Callable[[Sample], None] | None = None) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "callback",
+              "type": "Callable[[Sample], None] | None",
+              "default": "None"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "stop",
+          "name": "stop",
+          "signature": "stop() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "bias",
+          "name": "bias",
+          "signature": "bias() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "wait_for_first_sample",
+          "name": "wait_for_first_sample",
+          "signature": "wait_for_first_sample(timeout: float) -> bool",
+          "returnType": "bool",
+          "parameters": [
+            {
+              "name": "timeout",
+              "type": "float"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "samples",
+          "name": "samples",
+          "signature": "samples(timeout: float | None = None) -> Iterator[Sample]",
+          "returnType": "Iterator[Sample]",
+          "parameters": [
+            {
+              "name": "timeout",
+              "type": "float | None",
+              "default": "None"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "latest_sample",
+          "name": "latest_sample",
+          "signature": "latest_sample() -> Sample | None",
+          "returnType": "Sample | None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "health",
+          "name": "health",
+          "signature": "health() -> Health",
+          "returnType": "Health",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "wait",
+          "name": "wait",
+          "signature": "wait(timeout: float | None = None) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "timeout",
+              "type": "float | None",
+              "default": "None"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "raise_if_failed",
+          "name": "raise_if_failed",
+          "signature": "raise_if_failed() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.ClientState",
+      "name": "ClientState",
+      "qualifiedName": "pynetft.ClientState",
+      "category": "enum",
+      "declaration": "class ClientState(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import ClientState",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "STOPPED",
+          "value": "stopped"
+        },
+        {
+          "name": "CONNECTING",
+          "value": "connecting"
+        },
+        {
+          "name": "STREAMING",
+          "value": "streaming"
+        },
+        {
+          "name": "BACKOFF",
+          "value": "backoff"
+        },
+        {
+          "name": "FAULTED",
+          "value": "faulted"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    },
+    {
+      "id": "pynetft.Config",
+      "name": "Config",
+      "qualifiedName": "pynetft.Config",
+      "category": "dataclass",
+      "declaration": "class Config",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import Config",
+      "fields": [
+        {
+          "name": "sensor_host",
+          "type": "str",
+          "mutable": false,
+          "default": "'192.168.1.1'"
+        },
+        {
+          "name": "rdt_port",
+          "type": "int",
+          "mutable": false,
+          "default": "49152"
+        },
+        {
+          "name": "http_port",
+          "type": "int",
+          "mutable": false,
+          "default": "80"
+        },
+        {
+          "name": "receive_timeout",
+          "type": "float",
+          "mutable": false,
+          "default": "0.1"
+        },
+        {
+          "name": "configuration_connect_timeout",
+          "type": "float",
+          "mutable": false,
+          "default": "0.5"
+        },
+        {
+          "name": "configuration_timeout",
+          "type": "float",
+          "mutable": false,
+          "default": "1.0"
+        },
+        {
+          "name": "reconnect_initial_delay",
+          "type": "float",
+          "mutable": false,
+          "default": "0.25"
+        },
+        {
+          "name": "reconnect_max_delay",
+          "type": "float",
+          "mutable": false,
+          "default": "5.0"
+        },
+        {
+          "name": "sample_rate_limit_hz",
+          "type": "float",
+          "mutable": false,
+          "default": "0.0"
+        },
+        {
+          "name": "deliver_samples_with_error_status",
+          "type": "bool",
+          "mutable": false,
+          "default": "False"
+        },
+        {
+          "name": "recovery_policy",
+          "type": "RecoveryPolicy",
+          "mutable": false,
+          "default": "RecoveryPolicy.RECONNECT"
+        },
+        {
+          "name": "calibration_override",
+          "type": "Calibration | None",
+          "mutable": false,
+          "default": "None"
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.ConfigurationError",
+      "name": "ConfigurationError",
+      "qualifiedName": "pynetft.ConfigurationError",
+      "category": "exception",
+      "declaration": "class ConfigurationError(NetFTError, ValueError)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import ConfigurationError",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["NetFTError", "ValueError"]
+    },
+    {
+      "id": "pynetft.DiscoveryError",
+      "name": "DiscoveryError",
+      "qualifiedName": "pynetft.DiscoveryError",
+      "category": "exception",
+      "declaration": "class DiscoveryError(NetFTError, ConnectionError)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import DiscoveryError",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["NetFTError", "ConnectionError"]
+    },
+    {
+      "id": "pynetft.FaultCode",
+      "name": "FaultCode",
+      "qualifiedName": "pynetft.FaultCode",
+      "category": "enum",
+      "declaration": "class FaultCode(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import FaultCode",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "NONE",
+          "value": "none"
+        },
+        {
+          "name": "SENSOR_CONFIGURATION",
+          "value": "sensor_configuration"
+        },
+        {
+          "name": "TIMEOUT",
+          "value": "timeout"
+        },
+        {
+          "name": "SOCKET",
+          "value": "socket"
+        },
+        {
+          "name": "SERIOUS_STATUS",
+          "value": "serious_status"
+        },
+        {
+          "name": "FT_STALL",
+          "value": "ft_stall"
+        },
+        {
+          "name": "FT_BACKWARD",
+          "value": "ft_backward"
+        },
+        {
+          "name": "MALFORMED_STORM",
+          "value": "malformed_storm"
+        },
+        {
+          "name": "CALLBACK",
+          "value": "callback"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    },
+    {
+      "id": "pynetft.ForceUnit",
+      "name": "ForceUnit",
+      "qualifiedName": "pynetft.ForceUnit",
+      "category": "enum",
+      "declaration": "class ForceUnit(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import ForceUnit",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "UNKNOWN",
+          "value": "unknown"
+        },
+        {
+          "name": "POUND_FORCE",
+          "value": "lbf"
+        },
+        {
+          "name": "NEWTON",
+          "value": "N"
+        },
+        {
+          "name": "KILO_POUND_FORCE",
+          "value": "klbf"
+        },
+        {
+          "name": "KILO_NEWTON",
+          "value": "kN"
+        },
+        {
+          "name": "KILOGRAM_FORCE",
+          "value": "kgf"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    },
+    {
+      "id": "pynetft.Health",
+      "name": "Health",
+      "qualifiedName": "pynetft.Health",
+      "category": "dataclass",
+      "declaration": "class Health",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import Health",
+      "fields": [
+        {
+          "name": "state",
+          "type": "ClientState",
+          "mutable": false
+        },
+        {
+          "name": "fault_code",
+          "type": "FaultCode",
+          "mutable": false
+        },
+        {
+          "name": "sensor_host",
+          "type": "str",
+          "mutable": false
+        },
+        {
+          "name": "rdt_port",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "sensor_configuration",
+          "type": "SensorConfiguration | None",
+          "mutable": false
+        },
+        {
+          "name": "last_rdt_sequence",
+          "type": "int | None",
+          "mutable": false
+        },
+        {
+          "name": "last_ft_sequence",
+          "type": "int | None",
+          "mutable": false
+        },
+        {
+          "name": "last_status",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "receive_rate_hz",
+          "type": "float",
+          "mutable": false
+        },
+        {
+          "name": "delivery_rate_hz",
+          "type": "float",
+          "mutable": false
+        },
+        {
+          "name": "received_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "delivered_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "rate_limited_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "device_error_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "warning_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "lost_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "duplicate_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "out_of_order_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "malformed_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "reconnect_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "timeout_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "callback_error_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "ft_stall_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "ft_backward_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "ft_restart_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "calibration_change_count",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "last_record_age",
+          "type": "float | None",
+          "mutable": false
+        },
+        {
+          "name": "last_error",
+          "type": "str",
+          "mutable": false
+        },
+        {
+          "name": "last_ft_progress",
+          "type": "str",
+          "mutable": false
+        },
+        {
+          "name": "python_queue_dropped_count",
+          "type": "int",
+          "mutable": false
+        }
+      ],
+      "methods": [
+        {
+          "id": "empty",
+          "name": "empty",
+          "signature": "empty(sensor_host: str, rdt_port: int) -> 'Health'",
+          "returnType": "'Health'",
+          "parameters": [
+            {
+              "name": "sensor_host",
+              "type": "str"
+            },
+            {
+              "name": "rdt_port",
+              "type": "int"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.NetFT",
+      "name": "NetFT",
+      "qualifiedName": "pynetft.NetFT",
+      "category": "class",
+      "declaration": "class NetFT",
+      "sourcePath": "src/pynetft/_legacy.py",
+      "importPath": "from pynetft import NetFT",
+      "fields": [],
+      "methods": [
+        {
+          "id": "NetFT",
+          "name": "NetFT",
+          "signature": "__init__(host: str, port: int = 49152, num_samples: int = 1, count_per_force: float | None = None, count_per_torque: float | None = None) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "host",
+              "type": "str"
+            },
+            {
+              "name": "port",
+              "type": "int",
+              "default": "49152"
+            },
+            {
+              "name": "num_samples",
+              "type": "int",
+              "default": "1"
+            },
+            {
+              "name": "count_per_force",
+              "type": "float | None",
+              "default": "None"
+            },
+            {
+              "name": "count_per_torque",
+              "type": "float | None",
+              "default": "None"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "connect",
+          "name": "connect",
+          "signature": "connect() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "disconnect",
+          "name": "disconnect",
+          "signature": "disconnect() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "bias",
+          "name": "bias",
+          "signature": "bias() -> None",
+          "returnType": "None",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "get_data",
+          "name": "get_data",
+          "signature": "get_data() -> Response",
+          "returnType": "Response",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "get_converted_data",
+          "name": "get_converted_data",
+          "signature": "get_converted_data() -> Response",
+          "returnType": "Response",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        },
+        {
+          "id": "start_streaming",
+          "name": "start_streaming",
+          "signature": "start_streaming(duration: float = 10, delay: float = 0.1, print_data: bool = True) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "duration",
+              "type": "float",
+              "default": "10"
+            },
+            {
+              "name": "delay",
+              "type": "float",
+              "default": "0.1"
+            },
+            {
+              "name": "print_data",
+              "type": "bool",
+              "default": "True"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.NetFTError",
+      "name": "NetFTError",
+      "qualifiedName": "pynetft.NetFTError",
+      "category": "exception",
+      "declaration": "class NetFTError(Exception)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import NetFTError",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["Exception"]
+    },
+    {
+      "id": "pynetft.NotConnectedError",
+      "name": "NotConnectedError",
+      "qualifiedName": "pynetft.NotConnectedError",
+      "category": "exception",
+      "declaration": "class NotConnectedError(NetFTError, ConnectionError)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import NotConnectedError",
+      "fields": [],
+      "methods": [],
+      "values": [],
+      "bases": ["NetFTError", "ConnectionError"]
+    },
+    {
+      "id": "pynetft.RecoveryPolicy",
+      "name": "RecoveryPolicy",
+      "qualifiedName": "pynetft.RecoveryPolicy",
+      "category": "enum",
+      "declaration": "class RecoveryPolicy(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import RecoveryPolicy",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "RECONNECT",
+          "value": "reconnect"
+        },
+        {
+          "name": "FAIL_STOP",
+          "value": "fail_stop"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    },
+    {
+      "id": "pynetft.Response",
+      "name": "Response",
+      "qualifiedName": "pynetft.Response",
+      "category": "dataclass",
+      "declaration": "class Response",
+      "sourcePath": "src/pynetft/_legacy.py",
+      "importPath": "from pynetft import Response",
+      "fields": [
+        {
+          "name": "rdt_sequence",
+          "type": "int",
+          "mutable": true,
+          "default": "0"
+        },
+        {
+          "name": "ft_sequence",
+          "type": "int",
+          "mutable": true,
+          "default": "0"
+        },
+        {
+          "name": "status",
+          "type": "int",
+          "mutable": true,
+          "default": "0"
+        },
+        {
+          "name": "FTData",
+          "type": "list[int | float]",
+          "mutable": true,
+          "default": "field(default_factory=lambda: [0] * 6)"
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.Sample",
+      "name": "Sample",
+      "qualifiedName": "pynetft.Sample",
+      "category": "dataclass",
+      "declaration": "class Sample",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import Sample",
+      "fields": [
+        {
+          "name": "rdt_sequence",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "ft_sequence",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "status",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "raw_wrench",
+          "type": "tuple[int, int, int, int, int, int]",
+          "mutable": false
+        },
+        {
+          "name": "force",
+          "type": "tuple[float, float, float]",
+          "mutable": false
+        },
+        {
+          "name": "torque",
+          "type": "tuple[float, float, float]",
+          "mutable": false
+        },
+        {
+          "name": "force_unit",
+          "type": "ForceUnit",
+          "mutable": false
+        },
+        {
+          "name": "torque_unit",
+          "type": "TorqueUnit",
+          "mutable": false
+        },
+        {
+          "name": "configuration_revision",
+          "type": "int",
+          "mutable": false
+        },
+        {
+          "name": "received_at_ns",
+          "type": "int",
+          "mutable": false
+        }
+      ],
+      "methods": [
+        {
+          "id": "wrench",
+          "name": "wrench",
+          "signature": "wrench() -> tuple[float, float, float, float, float, float]",
+          "returnType": "tuple[float, float, float, float, float, float]",
+          "parameters": [],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.SensorConfiguration",
+      "name": "SensorConfiguration",
+      "qualifiedName": "pynetft.SensorConfiguration",
+      "category": "dataclass",
+      "declaration": "class SensorConfiguration",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import SensorConfiguration",
+      "fields": [
+        {
+          "name": "product_name",
+          "type": "str",
+          "mutable": false
+        },
+        {
+          "name": "calibration",
+          "type": "Calibration",
+          "mutable": false
+        },
+        {
+          "name": "source",
+          "type": "CalibrationSource",
+          "mutable": false
+        },
+        {
+          "name": "revision",
+          "type": "int",
+          "mutable": false
+        }
+      ],
+      "methods": [],
+      "values": [],
+      "bases": []
+    },
+    {
+      "id": "pynetft.SensorFaultError",
+      "name": "SensorFaultError",
+      "qualifiedName": "pynetft.SensorFaultError",
+      "category": "exception",
+      "declaration": "class SensorFaultError(NetFTError)",
+      "sourcePath": "src/pynetft/exceptions.py",
+      "importPath": "from pynetft import SensorFaultError",
+      "fields": [],
+      "methods": [
+        {
+          "id": "SensorFaultError",
+          "name": "SensorFaultError",
+          "signature": "__init__(fault_code: FaultCode, health: Health) -> None",
+          "returnType": "None",
+          "parameters": [
+            {
+              "name": "fault_code",
+              "type": "FaultCode"
+            },
+            {
+              "name": "health",
+              "type": "Health"
+            }
+          ],
+          "qualifiers": [],
+          "throws": []
+        }
+      ],
+      "values": [],
+      "bases": ["NetFTError"]
+    },
+    {
+      "id": "pynetft.TorqueUnit",
+      "name": "TorqueUnit",
+      "qualifiedName": "pynetft.TorqueUnit",
+      "category": "enum",
+      "declaration": "class TorqueUnit(str, Enum)",
+      "sourcePath": "src/pynetft/types.py",
+      "importPath": "from pynetft import TorqueUnit",
+      "fields": [],
+      "methods": [],
+      "values": [
+        {
+          "name": "UNKNOWN",
+          "value": "unknown"
+        },
+        {
+          "name": "POUND_FORCE_INCH",
+          "value": "lbf-in"
+        },
+        {
+          "name": "POUND_FORCE_FOOT",
+          "value": "lbf-ft"
+        },
+        {
+          "name": "NEWTON_METER",
+          "value": "N-m"
+        },
+        {
+          "name": "NEWTON_MILLIMETER",
+          "value": "N-mm"
+        },
+        {
+          "name": "KILOGRAM_FORCE_CENTIMETER",
+          "value": "kgf-cm"
+        },
+        {
+          "name": "KILO_NEWTON_METER",
+          "value": "kN-m"
+        }
+      ],
+      "bases": ["str", "Enum"]
+    }
+  ]
+}

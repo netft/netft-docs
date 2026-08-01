@@ -1,0 +1,34 @@
+import {OfficialSources} from '@site/src/components/ReferenceTables';
+
+# About Net F/T
+
+Net F/T is a community-maintained open-source organization for integrating ATI Ethernet force/torque sensors into applications, automation, and robotics. It is not affiliated with or endorsed by ATI Industrial Automation.
+
+## Repository responsibilities
+
+| Repository     | Responsibility                                                                      |
+| -------------- | ----------------------------------------------------------------------------------- |
+| `netft-cpp`    | Standalone C++ protocol, configuration, sample, health, and recovery SDK            |
+| `pyNetFT`      | Typed synchronous Python bindings and compatibility migration                       |
+| `netft-cli`    | Terminal commissioning, checking, monitoring, recording, and bias                   |
+| `netft-viewer` | Cross-platform desktop visualization and CSV recording                              |
+| `ros-netft`    | ROS standalone driver and `ros2_control` sensor hardware                            |
+| `netft-docs`   | Canonical user journeys, tutorials, shared concepts, reference, and troubleshooting |
+
+Component repositories own source, releases, migration notes, maintainer procedures, and implementation details. This site owns complete user-facing workflows and stable public interface references, with mechanical API facts extracted from pinned component releases.
+
+## Contributing documentation
+
+Verify software claims against current code, configuration, tests, or release metadata. Verify hardware claims against current official ATI documentation. Do not infer support from one CI job or copy volatile README prose without checking the implementation.
+
+Tests should protect metadata contracts, routes, links, executable examples, and builds. They must not freeze wording, headings, disclaimers, or source formatting. Public examples may use ATI's documented factory-default address but must not contain laboratory addresses, credentials, recordings, or private network details.
+
+See the repository `CONTRIBUTING.md` for the local pnpm workflow and pull-request checklist. Authored documentation under `docs/` uses [Creative Commons Attribution 4.0 International](https://github.com/netft/netft-docs/blob/main/LICENSE-DOCS). Code, examples, tests, configuration, scripts, and site tooling use the [Apache License 2.0](https://github.com/netft/netft-docs/blob/main/LICENSE). Third-party material remains subject to its original terms.
+
+## Official ATI sources
+
+Hardware guidance in this site is based on the following ATI Industrial Automation material:
+
+<OfficialSources />
+
+ATI material is authoritative for physical installation, electrical limits, model-specific axes, calibration, firmware, filters, transformations, and persistent device settings. This site paraphrases and links to that material; it does not redistribute ATI manuals.
