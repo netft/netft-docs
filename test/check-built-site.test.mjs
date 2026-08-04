@@ -7,7 +7,7 @@ import test from 'node:test';
 
 const checker = path.resolve('scripts/check-built-site.mjs');
 
-async function runChecker({files, routes}) {
+async function runChecker({files, routes, baseUrl = '/netft-docs/'}) {
   const root = await mkdtemp(path.join(tmpdir(), 'netft-docs-build-'));
   const buildRoot = path.join(root, 'build');
   const routesFile = path.join(root, 'routes.json');
@@ -20,19 +20,11 @@ async function runChecker({files, routes}) {
     await writeFile(target, contents);
   }
 
-  const result = spawnSync(
-    process.execPath,
-    [
-      checker,
-      '--build-root',
-      buildRoot,
-      '--routes',
-      routesFile,
-      '--base-url',
-      '/netft-docs/',
-    ],
-    {encoding: 'utf8'},
-  );
+  const args = [checker, '--build-root', buildRoot, '--routes', routesFile];
+  if (baseUrl !== null) {
+    args.push('--base-url', baseUrl);
+  }
+  const result = spawnSync(process.execPath, args, {encoding: 'utf8'});
 
   await rm(root, {recursive: true, force: true});
   return result;
@@ -44,6 +36,19 @@ test('accepts expected routes with resolvable internal links', async () => {
     files: {
       'index.html': '<a href="/netft-docs/docs/example/">Docs</a>',
       'docs/example/index.html': '<a href="/netft-docs/">Home</a>',
+    },
+  });
+
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test('uses the site root as the default base URL', async () => {
+  const result = await runChecker({
+    baseUrl: null,
+    routes: ['', 'docs/example'],
+    files: {
+      'index.html': '<a href="/docs/example/">Docs</a>',
+      'docs/example/index.html': '<a href="/">Home</a>',
     },
   });
 

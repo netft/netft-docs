@@ -44,6 +44,16 @@ test('production build contains a local documentation search index', () => {
   );
 });
 
+test('production build targets the custom domain at its root path', () => {
+  const html = readFileSync('build/index.html', 'utf8');
+  assert.match(
+    html,
+    /<link[^>]+rel="canonical"[^>]+href="https:\/\/netft\.dev\/"/,
+  );
+  assert.match(html, /(?:href|src)="\/assets\//);
+  assert.doesNotMatch(html, /(?:href|src)="\/netft-docs\//);
+});
+
 test('navbar presents an accessible GitHub organization link without a second external-link icon', () => {
   assert.ok(
     existsSync('static/img/github-mark.svg'),

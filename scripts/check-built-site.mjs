@@ -8,7 +8,7 @@ function option(name, fallback) {
 
 const buildRoot = path.resolve(option('--build-root', 'build'));
 const routesPath = option('--routes', 'data/site-routes.json');
-const baseUrl = option('--base-url', '/netft-docs/');
+const baseUrl = option('--base-url', '/');
 const failures = [];
 
 async function exists(target) {
