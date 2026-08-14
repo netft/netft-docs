@@ -1,6 +1,6 @@
 # Inspect and validate a sensor
 
-Net F/T CLI 0.2.0 is the preferred tool for commissioning, bounded health checks, scripting, live observation, loss-aware recording, and explicit bias.
+Net F/T CLI 0.2.1 is the preferred tool for commissioning, bounded health checks, scripting, live observation, loss-aware recording, and explicit bias.
 
 ## Inspect and check
 

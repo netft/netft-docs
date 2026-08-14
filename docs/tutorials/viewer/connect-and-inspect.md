@@ -1,6 +1,6 @@
 # Connect and inspect live data
 
-Net F/T Viewer 0.1.0 is a cross-platform desktop application for one sensor. It combines raw counts, calibrated values, units, connection health, charts, bias, and buffered CSV recording without requiring ROS.
+Net F/T Viewer 0.1.1 is a cross-platform desktop application for one sensor. It combines raw counts, calibrated values, units, connection health, charts, bias, and buffered CSV recording without requiring ROS.
 
 ![Net F/T Viewer showing connection controls, status, live values, and six chart panels.](/img/netft-viewer.png)
 
