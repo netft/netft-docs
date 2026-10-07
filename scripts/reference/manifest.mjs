@@ -133,3 +133,11 @@ export function loadReferenceManifest(file, expectedKind) {
     expectedKind,
   );
 }
+
+export function validateReferenceIdentity(manifest, component) {
+  for (const field of ['version', 'sourceTag', 'sourceCommit', 'sourceUrl']) {
+    if (manifest[field] !== component[field]) throw new Error(`reference ${field} does not match component versions`);
+  }
+  if ((manifest.publication ?? 'released') !== (component.publication ?? 'released')) throw new Error('reference publication does not match component versions');
+  return manifest;
+}
