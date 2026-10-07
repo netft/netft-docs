@@ -1020,5 +1020,7 @@
       ],
       "bases": ["str", "Enum"]
     }
-  ]
+  ],
+  "sourceCommit": "7ed2e2061f942d963116d78f3de76b4680e6fc44",
+  "publication": "released"
 }

@@ -30,9 +30,17 @@ function validateMetadata(manifest, expectedKind) {
       `expected ${expectedKind} manifest, received ${manifest.kind}`,
     );
   }
-  for (const field of ['component', 'version', 'sourceTag', 'sourceUrl']) {
+  for (const field of [
+    'component',
+    'version',
+    'sourceTag',
+    'sourceUrl',
+    'sourceCommit',
+  ]) {
     requireString(manifest[field], field);
   }
+  if (!/^[0-9a-f]{40}$/.test(manifest.sourceCommit))
+    throw new Error('sourceCommit must be a full commit SHA');
   if (!manifest.sourceUrl.startsWith('https://github.com/netft/')) {
     throw new Error('sourceUrl must refer to the netft organization');
   }

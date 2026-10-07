@@ -26,6 +26,7 @@ function apiManifest(overrides = {}) {
     component: 'netft-cpp',
     version: '0.3.3',
     sourceTag: 'v0.3.3',
+    sourceCommit: '1'.repeat(40),
     sourceUrl: 'https://github.com/netft/netft-cpp/tree/v0.3.3',
     symbols: [apiSymbol()],
     ...overrides,
@@ -100,6 +101,7 @@ test('rejects a CLI command that references an unknown option', () => {
     component: 'netft-cli',
     version: '0.2.0',
     sourceTag: 'v0.2.0',
+    sourceCommit: '1'.repeat(40),
     sourceUrl: 'https://github.com/netft/netft-cli/tree/v0.2.0',
     options: [],
     commands: [

@@ -19,19 +19,22 @@
       "version": "0.2.1",
       "sourceTag": "v0.2.1",
       "repository": "https://github.com/netft/netft-cli",
-      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.1"
+      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.1",
+      "sourceCommit": "ea7d21d614fdee86a34cadf2a0b456158ecfa41b"
     },
     "ros-netft": {
       "version": "0.3.3",
       "sourceTag": "0.3.3",
       "repository": "https://github.com/netft/ros-netft",
-      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.3"
+      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.3",
+      "sourceCommit": "ed23dc848f9ba6652d693f56341cca2b8480a8f2"
     },
     "netft-viewer": {
       "version": "0.1.1",
       "sourceTag": "v0.1.1",
       "repository": "https://github.com/netft/netft-viewer",
-      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.1.1"
+      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.1.1",
+      "sourceCommit": "9929c63f4822771a417f32b91c33ce8d6344d642"
     }
   }
 }

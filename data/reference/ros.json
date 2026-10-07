@@ -254,5 +254,7 @@
       "type": "double",
       "description": "ros2_control force/torque state interface"
     }
-  ]
+  ],
+  "sourceCommit": "ed23dc848f9ba6652d693f56341cca2b8480a8f2",
+  "publication": "released"
 }

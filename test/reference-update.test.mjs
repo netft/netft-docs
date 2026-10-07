@@ -6,7 +6,7 @@ import {join} from 'node:path';
 import {test} from 'node:test';
 
 import {extractCpp} from '../scripts/reference/extract-cpp.mjs';
-import {parseCliHelp} from '../scripts/reference/extract-cli.mjs';
+import {validateCliIdentity} from '../scripts/reference/extract-cli.mjs';
 import {extractPython} from '../scripts/reference/extract-python.mjs';
 import {extractRos} from '../scripts/reference/extract-ros.mjs';
 import {parseSourcePaths} from '../scripts/reference/update.mjs';
@@ -80,29 +80,26 @@ test('ROS extraction requires shared defaults to agree', () => {
   );
 });
 
-test('CLI extraction preserves synopsis, options, and exit statuses', () => {
-  const command = parseCliHelp(
-    'check',
-    `Usage: netft check [HOST] [OPTIONS]
-
-Run a bounded sensor stream health check.
-
-Options:
-      --duration DURATION
-      Stop after a bounded duration.
-      --max-loss NUMBER
-      Allow at most this packet loss percentage.
-
-Examples:
-  netft check sensor.example --duration 5s
-
-Exit status:
-  0, 2, 3, 4, 5, 6, 7, 130
-`,
-  );
-  assert.equal(command.synopsis, 'netft check [HOST] [OPTIONS]');
-  assert.deepEqual(command.optionIds, ['duration', 'max-loss']);
-  assert.deepEqual(command.exitStatuses, [0, 2, 3, 4, 5, 6, 7, 130]);
+test('CLI extraction rejects stale, dirty and unsupported executable identities', () => {
+  const metadata = {version: '0.2.1', sourceCommit: '1'.repeat(40)};
+  const manifest = {
+    schemaVersion: 1,
+    kind: 'cli',
+    component: 'netft-cli',
+    ...metadata,
+    sourceDirty: false,
+  };
+  assert.doesNotThrow(() => validateCliIdentity(manifest, metadata));
+  for (const change of [
+    {sourceCommit: '2'.repeat(40)},
+    {sourceDirty: true},
+    {version: '0.2.0'},
+    {schemaVersion: 2},
+  ]) {
+    assert.throws(() =>
+      validateCliIdentity({...manifest, ...change}, metadata),
+    );
+  }
 });
 
 test('Python extraction follows public exports and excludes private helpers', () => {
