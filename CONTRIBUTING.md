@@ -30,3 +30,7 @@ Tests should cover data contracts, validators, generated routes, links, and othe
 Keep each pull request focused. Explain the reader-facing outcome, source repositories checked, validation run, and any accessibility or deployment impact.
 
 By contributing authored content under `docs/`, you agree to license that contribution under [Creative Commons Attribution 4.0 International](LICENSE-DOCS). Contributions to code, examples, tests, configuration, scripts, and site tooling are licensed under the [Apache License 2.0](LICENSE). Do not submit third-party material unless its terms permit inclusion and its original license is preserved.
+
+## Example dependencies
+
+Example checks are required by default: `NETFT_CPP_ROOT` must point to SDK headers (the default is `.dependencies/netft-cpp`), and `PYTHON` must import the version of pynetft in `data/reference/versions.json`. CI obtains the fixed SDK commit and Python release explicitly. `pnpm check:examples --allow-missing` is a local opt-in for working on prose without installed dependencies; skipped checks are not passes. Imports load the Python example without invoking `main()` or contacting hardware.

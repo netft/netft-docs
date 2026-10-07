@@ -24,3 +24,5 @@ Thumbs.db
 
 # Local development plans
 .superpowers/
+
+.dependencies/

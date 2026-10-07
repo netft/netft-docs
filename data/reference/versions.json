@@ -5,13 +5,15 @@
       "version": "0.3.3",
       "sourceTag": "v0.3.3",
       "repository": "https://github.com/netft/netft-cpp",
-      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3"
+      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3",
+      "sourceCommit": "3259b8576b16fb150b51e9ef9090366c5e6efcba"
     },
     "pyNetFT": {
       "version": "2.1.1",
       "sourceTag": "v2.1.1",
       "repository": "https://github.com/netft/pyNetFT",
-      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.1"
+      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.1",
+      "sourceCommit": "7ed2e2061f942d963116d78f3de76b4680e6fc44"
     },
     "netft-cli": {
       "version": "0.2.1",
