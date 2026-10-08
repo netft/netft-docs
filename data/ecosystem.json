@@ -12,11 +12,12 @@
           "audience": "Operators and automation",
           "docsPath": "tutorials/cli/inspect-and-validate",
           "repository": "https://github.com/netft/netft-cli",
-          "stableVersion": "0.2.1",
+          "version": "0.3.0",
           "platforms": ["Linux", "macOS", "Windows"],
           "installMethods": ["release", "source"],
           "documentationOwner": "netft-docs",
-          "priority": 1
+          "priority": 1,
+          "releaseChannel": "stable"
         },
         {
           "id": "netft-viewer",
@@ -25,11 +26,12 @@
           "audience": "Lab and field users",
           "docsPath": "tutorials/viewer/connect-and-inspect",
           "repository": "https://github.com/netft/netft-viewer",
-          "stableVersion": "0.1.1",
+          "version": "0.2.1",
           "platforms": ["Linux", "macOS", "Windows"],
           "installMethods": ["release", "source"],
           "documentationOwner": "netft-docs",
-          "priority": 2
+          "priority": 2,
+          "releaseChannel": "development"
         }
       ]
     },
@@ -45,11 +47,12 @@
           "audience": "C++ developers",
           "docsPath": "tutorials/sdks/cpp",
           "repository": "https://github.com/netft/netft-cpp",
-          "stableVersion": "0.3.3",
+          "version": "0.3.4",
           "platforms": ["Linux", "macOS", "Windows"],
           "installMethods": ["source"],
           "documentationOwner": "netft-docs",
-          "priority": 1
+          "priority": 1,
+          "releaseChannel": "stable"
         },
         {
           "id": "pynetft",
@@ -58,11 +61,12 @@
           "audience": "Python developers",
           "docsPath": "tutorials/sdks/python",
           "repository": "https://github.com/netft/pyNetFT",
-          "stableVersion": "2.1.1",
+          "version": "2.1.2",
           "platforms": ["Linux", "macOS", "Windows"],
           "installMethods": ["PyPI", "source"],
           "documentationOwner": "netft-docs",
-          "priority": 2
+          "priority": 2,
+          "releaseChannel": "stable"
         }
       ]
     },
@@ -78,11 +82,12 @@
           "audience": "Robotics developers",
           "docsPath": "tutorials/ros/standalone",
           "repository": "https://github.com/netft/ros-netft",
-          "stableVersion": "0.3.3",
+          "version": "0.4.0",
           "platforms": ["Linux"],
           "installMethods": ["ROS", "source"],
           "documentationOwner": "netft-docs",
-          "priority": 1
+          "priority": 1,
+          "releaseChannel": "stable"
         }
       ]
     }

@@ -1,6 +1,6 @@
 # C++ SDK tutorial
 
-netft-cpp 0.3.3 is a standalone C++17 SDK for configuration discovery, RDT acquisition, calibrated samples, health, and explicit recovery.
+netft-cpp 0.3.4 is a standalone C++17 SDK for configuration discovery, RDT acquisition, calibrated samples, health, and explicit recovery.
 
 ## Build and consume
 

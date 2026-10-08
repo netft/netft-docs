@@ -1,11 +1,11 @@
 # Python SDK tutorial
 
-pyNetFT 2.1.1 is a synchronous typed Python interface to the shared native core. Supported wheels cover CPython 3.10–3.14 on Linux and macOS x86_64/ARM64 and Windows x86_64. They include curl and require no NumPy.
+pyNetFT 2.1.2 is a synchronous typed Python interface to the shared native core. Supported wheels cover CPython 3.10–3.14 on Linux and macOS x86_64/ARM64 and Windows x86_64. They include curl and require no NumPy.
 
 ## Install and read
 
 ```bash
-python -m pip install pynetft==2.1.1
+python -m pip install pynetft==2.1.2
 ```
 
 ```python

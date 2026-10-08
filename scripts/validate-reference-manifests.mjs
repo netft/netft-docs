@@ -17,7 +17,7 @@ for (const offering of catalog.categories.flatMap(
   const component = versions[name];
   if (
     !component ||
-    offering.stableVersion !== component.version ||
+    offering.version !== component.version ||
     offering.repository !== component.repository
   )
     throw new Error(`catalog identity does not match versions: ${name}`);
