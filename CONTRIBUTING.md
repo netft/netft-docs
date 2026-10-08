@@ -13,7 +13,7 @@ corepack enable
 corepack pnpm install --frozen-lockfile
 ```
 
-Start the local development server with `corepack pnpm start`. Run the complete gate with `corepack pnpm check`.
+Start the local development server with `corepack pnpm start`. Run the complete gate with `corepack pnpm check`. The site uses TypeScript 7 for CLI type checking with a standalone `tsconfig.json`; keep its site path mappings relative to the project root and do not reintroduce the removed `baseUrl` option.
 
 ## Content boundaries
 
