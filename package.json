@@ -17,7 +17,7 @@
     "serve": "docusaurus serve",
     "start": "docusaurus start",
     "test": "node --test",
-    "test:unit": "node --test test/check-built-site.test.mjs test/validate-ecosystem.test.mjs test/validate-sources.test.mjs test/reference-manifest.test.mjs test/reference-update.test.mjs",
+    "test:unit": "node --test test/check-built-site.test.mjs test/validate-ecosystem.test.mjs test/validate-sources.test.mjs test/reference-manifest.test.mjs test/reference-update.test.mjs test/check-examples.test.mjs test/source-identity.test.mjs",
     "test:built": "node --test test/reference-rendering.test.mjs test/api-coverage.test.mjs test/interface-reference-coverage.test.mjs test/site-chrome.test.mjs",
     "typecheck": "tsc",
     "update:references": "node scripts/reference/update.mjs",

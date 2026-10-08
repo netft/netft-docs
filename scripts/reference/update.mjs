@@ -1,6 +1,8 @@
 import {readFileSync, writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 
+import {verifySourceIdentity} from './source-identity.mjs';
+
 import {extractCli} from './extract-cli.mjs';
 import {extractCpp} from './extract-cpp.mjs';
 import {extractPython} from './extract-python.mjs';
@@ -26,6 +28,8 @@ function metadata(component, versions) {
   const value = versions.components[component];
   return {
     version: value.version,
+    sourceCommit: value.sourceCommit,
+    publication: value.publication ?? 'released',
     sourceTag: value.sourceTag,
     sourceUrl: value.sourceUrl,
   };
@@ -33,8 +37,21 @@ function metadata(component, versions) {
 
 export function updateReferenceManifests(paths) {
   const versions = JSON.parse(
-    readFileSync(resolve('data/reference/versions.json'), 'utf8'),
+    readFileSync(
+      resolve(
+        process.env.NETFT_REFERENCE_VERSIONS || 'data/reference/versions.json',
+      ),
+      'utf8',
+    ),
   );
+  for (const [key, component] of Object.entries({
+    cpp: 'netft-cpp',
+    python: 'pyNetFT',
+    cli: 'netft-cli',
+    ros: 'ros-netft',
+  })) {
+    verifySourceIdentity(paths[key], component, metadata(component, versions));
+  }
   const manifests = {
     'cpp.json': validateReferenceManifest(
       extractCpp(paths.cpp, metadata('netft-cpp', versions)),
@@ -55,7 +72,7 @@ export function updateReferenceManifests(paths) {
   };
   for (const [filename, manifest] of Object.entries(manifests)) {
     writeFileSync(
-      resolve('data/reference', filename),
+      resolve(process.env.NETFT_REFERENCE_OUTPUT || 'data/reference', filename),
       `${JSON.stringify(manifest, null, 2)}\n`,
     );
   }

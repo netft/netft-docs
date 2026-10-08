@@ -2,9 +2,11 @@
   "schemaVersion": 1,
   "kind": "cpp-api",
   "component": "netft-cpp",
-  "version": "0.3.3",
-  "sourceTag": "v0.3.3",
-  "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3",
+  "version": "0.3.4",
+  "sourceCommit": "1ce68a08a9387d9a36d22c3c259e44533199c347",
+  "publication": "released",
+  "sourceTag": "v0.3.4",
+  "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.4",
   "symbols": [
     {
       "id": "netft.Calibration",

@@ -10,9 +10,14 @@ test('built C++ Client reference exposes the declaration and stable method ancho
   assert.match(html, /netft::Client/);
   assert.match(html, /void start\(SampleCallback callback\)/);
   assert.match(html, /id="start"/);
-  assert.match(
-    html,
-    /https:\/\/github\.com\/netft\/netft-cpp\/tree\/v0\.3\.3\/include\/netft\/client\.hpp/,
+  const {components} = JSON.parse(
+    readFileSync('data/reference/versions.json', 'utf8'),
+  );
+  assert.ok(
+    html.includes(
+      `${components['netft-cpp'].sourceUrl}/include/netft/client.hpp`,
+    ),
+    'Client declaration must link to the documented SDK release',
   );
   assert.doesNotMatch(html, /pynetft\._native/);
 });

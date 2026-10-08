@@ -10,7 +10,7 @@ export function ComponentVersions(): ReactNode {
       <thead>
         <tr>
           <th>Interface</th>
-          <th>Stable version</th>
+          <th>Version</th>
           <th>Platforms</th>
           <th>Release</th>
         </tr>
@@ -19,7 +19,11 @@ export function ComponentVersions(): ReactNode {
         {offerings.map((offering) => (
           <tr key={offering.id}>
             <td>{offering.name}</td>
-            <td>{offering.stableVersion}</td>
+            <td>
+              {offering.version}
+              {offering.releaseChannel === 'development' &&
+                ' (development prerelease)'}
+            </td>
             <td>{offering.platforms.join(', ')}</td>
             <td>
               <a href={`${offering.repository}/releases`}>Releases</a>

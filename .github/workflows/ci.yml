@@ -31,5 +31,29 @@ jobs:
           node-version: 22
           cache: pnpm
 
+      - id: example-versions
+        name: Read fixed example dependencies
+        run: |
+          node --input-type=module <<'JS'
+          import {readFileSync, appendFileSync} from 'node:fs';
+          const {components} = JSON.parse(readFileSync('data/reference/versions.json'));
+          appendFileSync(process.env.GITHUB_OUTPUT, `cpp_ref=${components['netft-cpp'].sourceCommit}\npynetft_version=${components.pyNetFT.version}\n`);
+          JS
+
+      - name: Obtain the fixed C++ SDK for examples
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          repository: netft/netft-cpp
+          ref: ${{ steps.example-versions.outputs.cpp_ref }}
+          path: .dependencies/netft-cpp
+          persist-credentials: false
+
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.12'
+
+      - name: Install the fixed Python package for examples
+        run: python3 -m pip install 'pynetft==${{ steps.example-versions.outputs.pynetft_version }}'
+
       - run: pnpm install --frozen-lockfile
       - run: pnpm check

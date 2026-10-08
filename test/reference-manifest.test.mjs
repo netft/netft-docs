@@ -26,6 +26,7 @@ function apiManifest(overrides = {}) {
     component: 'netft-cpp',
     version: '0.3.3',
     sourceTag: 'v0.3.3',
+    sourceCommit: '1'.repeat(40),
     sourceUrl: 'https://github.com/netft/netft-cpp/tree/v0.3.3',
     symbols: [apiSymbol()],
     ...overrides,
@@ -100,6 +101,7 @@ test('rejects a CLI command that references an unknown option', () => {
     component: 'netft-cli',
     version: '0.2.0',
     sourceTag: 'v0.2.0',
+    sourceCommit: '1'.repeat(40),
     sourceUrl: 'https://github.com/netft/netft-cli/tree/v0.2.0',
     options: [],
     commands: [
@@ -118,5 +120,35 @@ test('rejects a CLI command that references an unknown option', () => {
   assert.throws(
     () => validateReferenceManifest(manifest, 'cli'),
     /unknown option: format/,
+  );
+});
+
+test('reference identities reject drift from the component version inventory', async () => {
+  const {validateReferenceIdentity} =
+    await import('../scripts/reference/manifest.mjs');
+  const component = {
+    version: '1.2.3',
+    sourceTag: 'v1.2.3',
+    sourceCommit: 'a'.repeat(40),
+    sourceUrl: 'https://github.com/netft/netft-cli/tree/v1.2.3',
+  };
+  assert.equal(
+    validateReferenceIdentity({...component}, component).version,
+    '1.2.3',
+  );
+  for (const field of ['version', 'sourceCommit', 'sourceTag', 'sourceUrl']) {
+    assert.throws(
+      () =>
+        validateReferenceIdentity({...component, [field]: 'wrong'}, component),
+      /does not match/,
+    );
+  }
+  assert.throws(
+    () =>
+      validateReferenceIdentity(
+        {...component, publication: 'unreleased'},
+        component,
+      ),
+    /publication/,
   );
 });

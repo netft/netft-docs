@@ -102,8 +102,13 @@ if (!Array.isArray(categories) || categories.length === 0) {
         );
       }
 
-      if (!/^\d+\.\d+\.\d+$/.test(offering.stableVersion ?? '')) {
-        failures.push(`${offering.id}: stable version must use X.Y.Z`);
+      if (!/^\d+\.\d+\.\d+$/.test(offering.version ?? '')) {
+        failures.push(`${offering.id}: version must use X.Y.Z`);
+      }
+      if (
+        !['stable', 'development'].includes(offering.releaseChannel ?? 'stable')
+      ) {
+        failures.push(`${offering.id}: unsupported release channel`);
       }
       const supportedPlatforms = new Set(['Linux', 'macOS', 'Windows']);
       if (

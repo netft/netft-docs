@@ -30,3 +30,13 @@ Tests should cover data contracts, validators, generated routes, links, and othe
 Keep each pull request focused. Explain the reader-facing outcome, source repositories checked, validation run, and any accessibility or deployment impact.
 
 By contributing authored content under `docs/`, you agree to license that contribution under [Creative Commons Attribution 4.0 International](LICENSE-DOCS). Contributions to code, examples, tests, configuration, scripts, and site tooling are licensed under the [Apache License 2.0](LICENSE). Do not submit third-party material unless its terms permit inclusion and its original license is preserved.
+
+## Example dependencies
+
+Example checks are required by default: `NETFT_CPP_ROOT` must point to SDK headers (the default is `.dependencies/netft-cpp`), and `PYTHON` must import the version of pynetft in `data/reference/versions.json`. CI obtains the fixed SDK commit and Python release explicitly. `pnpm check:examples --allow-missing` is a local opt-in for working on prose without installed dependencies; skipped checks are not passes. Imports load the Python example without invoking `main()` or contacting hardware.
+
+## Reference provenance
+
+`pnpm update:references -- --cpp PATH --python PATH --cli PATH --ros PATH` requires clean checkouts whose origin, HEAD, exact tag and project version match `data/reference/versions.json`. CLI extraction consumes `--schema` and also verifies executable version, commit and clean-source identity; point `NETFT_CLI_EXECUTABLE` at the matching build. Older CLI releases without this interface cannot regenerate their CLI manifest with the new extractor. Their existing published reference remains pinned to its real release commit.
+
+To review an unreleased candidate, copy the versions file to a temporary file, set each entry's `publication` and `sourceTag` to `unreleased`, set `sourceCommit` to its exact clean checkout HEAD, and use a `sourceUrl` ending in `/tree/<commit>`. Set `NETFT_REFERENCE_VERSIONS` and `NETFT_REFERENCE_OUTPUT` to the temporary metadata file and an existing temporary directory. Review generated candidates before explicitly replacing published references; do not label candidate code as a released tag.

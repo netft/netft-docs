@@ -22,6 +22,7 @@
     "**/*.mdx",
     "!node_modules/**",
     "!build/**",
+    "!.dependencies/**",
     "!.superpowers/**",
   ],
 }

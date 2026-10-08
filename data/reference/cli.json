@@ -2,117 +2,131 @@
   "schemaVersion": 1,
   "kind": "cli",
   "component": "netft-cli",
-  "version": "0.2.1",
-  "sourceTag": "v0.2.1",
-  "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.1",
+  "version": "0.3.0",
+  "sourceCommit": "ed946edcf31d4a6fab06dadaa3826afc7522f161",
   "options": [
-    {
-      "id": "color",
-      "longName": "color",
-      "valueType": "auto|always|never",
-      "values": ["auto", "always", "never"],
-      "description": "Control color in human-readable output."
-    },
-    {
-      "id": "count",
-      "longName": "count",
-      "valueType": "INTEGER",
-      "values": [],
-      "description": "Stop after recording this many samples."
-    },
-    {
-      "id": "duration",
-      "longName": "duration",
-      "valueType": "DURATION",
-      "values": [],
-      "description": "Stop after a bounded duration."
-    },
     {
       "id": "format",
       "longName": "format",
-      "valueType": "auto|text|json|table|ndjson|csv",
-      "values": ["auto", "text", "json", "table", "ndjson", "csv"],
-      "description": "Select the output format."
-    },
-    {
-      "id": "http-port",
-      "longName": "http-port",
-      "valueType": "PORT",
-      "values": [],
-      "description": "Set the sensor HTTP port."
-    },
-    {
-      "id": "max-loss",
-      "longName": "max-loss",
-      "valueType": "NUMBER",
-      "values": [],
-      "description": "Allow at most this packet loss percentage."
-    },
-    {
-      "id": "max-reconnects",
-      "longName": "max-reconnects",
-      "valueType": "INTEGER",
-      "values": [],
-      "description": "Allow at most this many reconnects."
-    },
-    {
-      "id": "min-rate",
-      "longName": "min-rate",
-      "valueType": "NUMBER",
-      "values": [],
-      "description": "Require a minimum observed receive rate."
+      "valueType": "choice",
+      "description": "Select the output format.",
+      "repeatable": false,
+      "values": ["auto", "text", "json", "table", "ndjson", "csv"]
     },
     {
       "id": "output",
       "longName": "output",
-      "valueType": "PATH",
-      "values": [],
-      "description": "Write output to a file."
+      "valueType": "path",
+      "description": "Write output to a file.",
+      "repeatable": false,
+      "values": []
     },
     {
-      "id": "quiet",
-      "longName": "quiet",
-      "shortName": "q",
-      "valueType": "flag",
-      "values": [],
-      "description": "Suppress progress output."
-    },
-    {
-      "id": "rate",
-      "longName": "rate",
-      "valueType": "NUMBER",
-      "values": [],
-      "description": "Set the monitor output rate in hertz."
+      "id": "http-port",
+      "longName": "http-port",
+      "valueType": "port",
+      "description": "Set the sensor HTTP port.",
+      "repeatable": false,
+      "values": []
     },
     {
       "id": "rdt-port",
       "longName": "rdt-port",
-      "valueType": "PORT",
-      "values": [],
-      "description": "Set the sensor RDT port."
+      "valueType": "port",
+      "description": "Set the sensor RDT port.",
+      "repeatable": false,
+      "values": []
     },
     {
       "id": "timeout",
       "longName": "timeout",
-      "valueType": "DURATION",
-      "values": [],
-      "description": "Set the connection timeout."
+      "valueType": "duration",
+      "description": "Set the connection timeout.",
+      "repeatable": false,
+      "values": []
     },
     {
-      "id": "verbose",
-      "longName": "verbose",
-      "shortName": "v",
-      "valueType": "flag",
-      "values": [],
-      "description": "Show additional diagnostic progress."
+      "id": "rate",
+      "longName": "rate",
+      "valueType": "positive-number",
+      "description": "Set the monitor output rate in hertz.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "duration",
+      "longName": "duration",
+      "valueType": "duration",
+      "description": "Stop after a bounded duration.",
+      "repeatable": false,
+      "values": []
     },
     {
       "id": "yes",
       "longName": "yes",
       "shortName": "y",
       "valueType": "flag",
-      "values": [],
-      "description": "Confirm the operation without prompting."
+      "description": "Confirm the operation without prompting.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "min-rate",
+      "longName": "min-rate",
+      "valueType": "positive-number",
+      "description": "Require a minimum observed receive rate.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "max-loss",
+      "longName": "max-loss",
+      "valueType": "nonnegative-number",
+      "description": "Allow at most this packet loss percentage.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "max-reconnects",
+      "longName": "max-reconnects",
+      "valueType": "nonnegative-integer",
+      "description": "Allow at most this many reconnects.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "count",
+      "longName": "count",
+      "valueType": "positive-integer",
+      "description": "Stop after recording this many samples.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "verbose",
+      "longName": "verbose",
+      "shortName": "v",
+      "valueType": "flag",
+      "description": "Show additional diagnostic progress.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "quiet",
+      "longName": "quiet",
+      "shortName": "q",
+      "valueType": "flag",
+      "description": "Suppress progress output.",
+      "repeatable": false,
+      "values": []
+    },
+    {
+      "id": "color",
+      "longName": "color",
+      "valueType": "choice",
+      "description": "Control color in human-readable output.",
+      "repeatable": false,
+      "values": ["auto", "always", "never"]
     }
   ],
   "commands": [
@@ -131,12 +145,50 @@
         "format",
         "output"
       ],
-      "positionals": [],
+      "positionals": [
+        {
+          "name": "HOST",
+          "valueType": "host",
+          "required": false,
+          "values": []
+        }
+      ],
       "examples": [
         "netft info sensor.example",
         "netft info sensor.example --format json"
       ],
       "exitStatuses": [0, 2, 3, 6]
+    },
+    {
+      "id": "monitor",
+      "name": "monitor",
+      "synopsis": "netft monitor [HOST] [OPTIONS]",
+      "description": "Display the latest sensor sample at a bounded output rate.",
+      "optionIds": [
+        "verbose",
+        "quiet",
+        "color",
+        "http-port",
+        "rdt-port",
+        "timeout",
+        "format",
+        "output",
+        "rate",
+        "duration"
+      ],
+      "positionals": [
+        {
+          "name": "HOST",
+          "valueType": "host",
+          "required": false,
+          "values": []
+        }
+      ],
+      "examples": [
+        "netft monitor sensor.example",
+        "netft monitor sensor.example --rate 50"
+      ],
+      "exitStatuses": [0, 2, 3, 4, 5, 6, 130]
     },
     {
       "id": "check",
@@ -157,36 +209,19 @@
         "max-loss",
         "max-reconnects"
       ],
-      "positionals": [],
+      "positionals": [
+        {
+          "name": "HOST",
+          "valueType": "host",
+          "required": false,
+          "values": []
+        }
+      ],
       "examples": [
         "netft check sensor.example",
         "netft check sensor.example --format json"
       ],
       "exitStatuses": [0, 2, 3, 4, 5, 6, 7, 130]
-    },
-    {
-      "id": "monitor",
-      "name": "monitor",
-      "synopsis": "netft monitor [HOST] [OPTIONS]",
-      "description": "Display the latest sensor sample at a bounded output rate.",
-      "optionIds": [
-        "verbose",
-        "quiet",
-        "color",
-        "http-port",
-        "rdt-port",
-        "timeout",
-        "format",
-        "output",
-        "rate",
-        "duration"
-      ],
-      "positionals": [],
-      "examples": [
-        "netft monitor sensor.example",
-        "netft monitor sensor.example --rate 50"
-      ],
-      "exitStatuses": [0, 2, 3, 4, 5, 6, 130]
     },
     {
       "id": "record",
@@ -205,7 +240,14 @@
         "duration",
         "count"
       ],
-      "positionals": [],
+      "positionals": [
+        {
+          "name": "HOST",
+          "valueType": "host",
+          "required": false,
+          "values": []
+        }
+      ],
       "examples": [
         "netft record sensor.example --output measurement.csv",
         "netft record sensor.example --output measurement.ndjson --duration 60s"
@@ -228,7 +270,14 @@
         "output",
         "yes"
       ],
-      "positionals": [],
+      "positionals": [
+        {
+          "name": "HOST",
+          "valueType": "host",
+          "required": false,
+          "values": []
+        }
+      ],
       "examples": [
         "netft bias sensor.example",
         "netft bias sensor.example --yes"
@@ -241,7 +290,14 @@
       "synopsis": "netft completion SHELL",
       "description": "Generate a shell completion script.",
       "optionIds": ["verbose", "quiet", "color"],
-      "positionals": [],
+      "positionals": [
+        {
+          "name": "SHELL",
+          "valueType": "choice",
+          "required": true,
+          "values": ["bash", "zsh", "fish", "powershell"]
+        }
+      ],
       "examples": ["netft completion bash", "netft completion powershell"],
       "exitStatuses": [0, 2]
     }
@@ -283,5 +339,8 @@
       "code": 130,
       "meaning": "Interrupted"
     }
-  ]
+  ],
+  "publication": "released",
+  "sourceTag": "v0.3.0",
+  "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.0"
 }

@@ -2,34 +2,40 @@
   "schemaVersion": 1,
   "components": {
     "netft-cpp": {
-      "version": "0.3.3",
-      "sourceTag": "v0.3.3",
+      "version": "0.3.4",
+      "sourceTag": "v0.3.4",
       "repository": "https://github.com/netft/netft-cpp",
-      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.3"
+      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.4",
+      "sourceCommit": "1ce68a08a9387d9a36d22c3c259e44533199c347"
     },
     "pyNetFT": {
-      "version": "2.1.1",
-      "sourceTag": "v2.1.1",
+      "version": "2.1.2",
+      "sourceTag": "v2.1.2",
       "repository": "https://github.com/netft/pyNetFT",
-      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.1"
+      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.2",
+      "sourceCommit": "7d7b9fb2bfb53e2cfc362c3d76d5a0222d385464"
     },
     "netft-cli": {
-      "version": "0.2.1",
-      "sourceTag": "v0.2.1",
+      "version": "0.3.0",
+      "sourceTag": "v0.3.0",
       "repository": "https://github.com/netft/netft-cli",
-      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.2.1"
+      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.0",
+      "sourceCommit": "ed946edcf31d4a6fab06dadaa3826afc7522f161"
     },
     "ros-netft": {
-      "version": "0.3.3",
-      "sourceTag": "0.3.3",
+      "version": "0.4.0",
+      "sourceTag": "0.4.0",
       "repository": "https://github.com/netft/ros-netft",
-      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.3"
+      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.4.0",
+      "sourceCommit": "e272550080e10a1f1bc71c2ce6499c556ecd538c"
     },
     "netft-viewer": {
-      "version": "0.1.1",
-      "sourceTag": "v0.1.1",
+      "version": "0.2.1",
+      "sourceTag": "v0.2.1",
       "repository": "https://github.com/netft/netft-viewer",
-      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.1.1"
+      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.2.1",
+      "sourceCommit": "678da9903880849d1a673504e3f16c177e384bcc",
+      "releaseChannel": "development"
     }
   }
 }

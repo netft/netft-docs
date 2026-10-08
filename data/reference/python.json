@@ -2,9 +2,11 @@
   "schemaVersion": 1,
   "kind": "python-api",
   "component": "pyNetFT",
-  "version": "2.1.1",
-  "sourceTag": "v2.1.1",
-  "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.1",
+  "version": "2.1.2",
+  "sourceCommit": "7d7b9fb2bfb53e2cfc362c3d76d5a0222d385464",
+  "publication": "released",
+  "sourceTag": "v2.1.2",
+  "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.2",
   "symbols": [
     {
       "id": "pynetft.Calibration",

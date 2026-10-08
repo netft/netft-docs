@@ -1,6 +1,6 @@
 # ROS standalone driver
 
-ros-netft 0.3.3 provides a standalone wrench driver for current ROS 2 distributions and legacy source support for ROS 1 Noetic. The ROS package name is `netft_driver`.
+ros-netft 0.4.0 provides a standalone wrench driver for current ROS 2 distributions and legacy source support for ROS 1 Noetic. The ROS package name is `netft_driver`.
 
 ## Support and installation
 
@@ -85,7 +85,7 @@ RDT does not acknowledge the bias command. A successful service response means t
 ```bash
 source /opt/ros/noetic/setup.bash
 mkdir -p ~/netft_ws/src
-git clone --branch 0.3.3 https://github.com/netft/ros-netft.git \
+git clone --branch 0.4.0 https://github.com/netft/ros-netft.git \
   ~/netft_ws/src/netft_driver
 cd ~/netft_ws
 rosdep update --include-eol-distros

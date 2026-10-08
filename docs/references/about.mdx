@@ -32,3 +32,17 @@ Hardware guidance in this site is based on the following ATI Industrial Automati
 <OfficialSources />
 
 ATI material is authoritative for physical installation, electrical limits, model-specific axes, calibration, firmware, filters, transformations, and persistent device settings. This site paraphrases and links to that material; it does not redistribute ATI manuals.
+
+## Maintenance and issue routing
+
+| Concern                                          | Owning repository |
+| ------------------------------------------------ | ----------------- |
+| RDT protocol, calibration, native recovery       | `netft-cpp`       |
+| Python delivery and compatibility API            | `pyNetFT`         |
+| Terminal parsing, diagnostics, recording         | `netft-cli`       |
+| ROS nodes, controllers, distribution integration | `ros-netft`       |
+| Desktop interaction, companion, packaging        | `netft-viewer`    |
+| Shared user guides and source references         | `netft-docs`      |
+| Organization navigation and policies             | `.github`         |
+
+Fix shared core behavior upstream, then verify each consumer's pinned source manifest and adaptations. The compatibility page uses the maintained component inventory; consult the ROS repository for the exact distribution contract and validation gaps. Candidate documentation explicitly identifies unreleased behavior.

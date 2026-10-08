@@ -2,9 +2,11 @@
   "schemaVersion": 1,
   "kind": "ros",
   "component": "ros-netft",
-  "version": "0.3.3",
-  "sourceTag": "0.3.3",
-  "sourceUrl": "https://github.com/netft/ros-netft/tree/0.3.3",
+  "version": "0.4.0",
+  "sourceCommit": "e272550080e10a1f1bc71c2ce6499c556ecd538c",
+  "publication": "released",
+  "sourceTag": "0.4.0",
+  "sourceUrl": "https://github.com/netft/ros-netft/tree/0.4.0",
   "pluginClass": "netft_driver/NetFTHardwareInterface",
   "standaloneParameters": [
     {
@@ -182,6 +184,12 @@
       "type": "int",
       "default": 2,
       "description": "Maximum wait for the first healthy hardware sample"
+    },
+    {
+      "name": "allow_bias",
+      "type": "bool",
+      "default": true,
+      "description": "allow bias"
     },
     {
       "name": "bias_service",

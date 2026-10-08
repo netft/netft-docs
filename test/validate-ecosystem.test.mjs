@@ -38,7 +38,7 @@ const offering = {
   audience: 'C++ developers',
   docsPath: 'sdks/cpp',
   repository: 'https://github.com/netft/netft-cpp',
-  stableVersion: '0.3.3',
+  version: '0.3.3',
   platforms: ['Linux', 'macOS', 'Windows'],
   installMethods: ['source'],
   documentationOwner: 'netft-docs',
@@ -134,12 +134,12 @@ test('rejects an offering whose documentation route is missing', async () => {
   assert.match(result.stderr, /documentation route/i);
 });
 
-test('rejects a malformed stable version', async () => {
+test('rejects a malformed version', async () => {
   const catalog = structuredClone(validCatalog);
-  catalog.categories[0].offerings[0].stableVersion = 'latest';
+  catalog.categories[0].offerings[0].version = 'latest';
   const result = await runValidator(catalog, ['sdks/cpp']);
   assert.notEqual(result.status, 0);
-  assert.match(result.stderr, /stable version/i);
+  assert.match(result.stderr, /version/i);
 });
 
 test('rejects an unsupported platform value', async () => {
@@ -148,4 +148,19 @@ test('rejects an unsupported platform value', async () => {
   const result = await runValidator(catalog, ['sdks/cpp']);
   assert.notEqual(result.status, 0);
   assert.match(result.stderr, /platform/i);
+});
+
+test('accepts explicitly labeled development releases', async () => {
+  const catalog = structuredClone(validCatalog);
+  catalog.categories[0].offerings[0].releaseChannel = 'development';
+  const result = await runValidator(catalog, ['sdks/cpp']);
+  assert.equal(result.status, 0, result.stderr);
+});
+
+test('rejects unsupported release channels', async () => {
+  const catalog = structuredClone(validCatalog);
+  catalog.categories[0].offerings[0].releaseChannel = 'unknown';
+  const result = await runValidator(catalog, ['sdks/cpp']);
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /release channel/i);
 });

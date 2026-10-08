@@ -45,6 +45,8 @@ export interface ApiManifest {
   kind: ApiKind;
   component: string;
   version: string;
+  sourceCommit: string;
+  publication?: 'released' | 'unreleased';
   sourceTag: string;
   sourceUrl: string;
   symbols: ApiSymbol[];
@@ -65,7 +67,12 @@ export interface CliCommand {
   synopsis: string;
   description?: string;
   optionIds: string[];
-  positionals: ApiParameter[];
+  positionals: Array<{
+    name: string;
+    valueType: string;
+    required: boolean;
+    values: string[];
+  }>;
   examples: string[];
   exitStatuses: number[];
 }
@@ -75,6 +82,8 @@ export interface CliManifest {
   kind: 'cli';
   component: string;
   version: string;
+  sourceCommit: string;
+  publication?: 'released' | 'unreleased';
   sourceTag: string;
   sourceUrl: string;
   options: CliOption[];
@@ -104,6 +113,8 @@ export interface RosManifest {
   kind: 'ros';
   component: string;
   version: string;
+  sourceCommit: string;
+  publication?: 'released' | 'unreleased';
   sourceTag: string;
   sourceUrl: string;
   pluginClass: string;
