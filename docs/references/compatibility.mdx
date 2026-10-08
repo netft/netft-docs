@@ -34,6 +34,8 @@ Consult each release page for later patches and exact artifacts. A CI job alone 
 
 Each repository versions and releases independently. Patch releases are expected to preserve the documented public interface while correcting defects. Minor releases may add compatible behavior. Before a major upgrade, read that repository's release notes and migration guide where provided.
 
+Future releases are published as stable releases after their required checks pass. Publisher signing and Apple notarization are optional and do not determine the release channel. Windows packages may be unsigned, and macOS packages may use ad hoc code-integrity signatures without notarization; check the installation instructions and release notes for each package. Operating-system policy may require explicit approval before opening an application. Previously published prereleases retain their original labels.
+
 Do not infer compatibility from matching version numbers across repositories. For example, pyNetFT 2.x and netft-cpp 0.3.x are different public products with different version histories even when they contain related native code.
 
 ## Source builds
