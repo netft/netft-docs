@@ -1,7 +1,19 @@
 {
-  "extends": "@docusaurus/tsconfig",
   "compilerOptions": {
-    "baseUrl": "."
+    "allowJs": true,
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "noEmit": true,
+    "paths": {
+      "@site/*": ["./*"]
+    },
+    "types": ["node", "react", "react-dom"],
+    "skipLibCheck": true,
+    "strict": false
   },
   "exclude": ["build", "node_modules"]
 }
