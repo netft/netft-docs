@@ -15,6 +15,8 @@ corepack pnpm install --frozen-lockfile
 
 Start the local development server with `corepack pnpm start`. Run the complete gate with `corepack pnpm check`. The site uses TypeScript 7 for CLI type checking with a standalone `tsconfig.json`; keep its site path mappings relative to the project root and do not reintroduce the removed `baseUrl` option.
 
+Keep @types/node on the Node.js 22 runtime line used by CI and Cloudflare. Update its major only together with the supported runtime and deployment configuration.
+
 ## Content boundaries
 
 Use this site for complete user journeys, installation, task guides, shared concepts, C++ and Python API references, CLI and ROS contracts, operations, and cross-component troubleshooting. Keep implementation internals, release mechanics, and maintainer-only procedures in the repository that owns them. Mechanical interface facts in References come from pinned source manifests; behavioral explanations must still be verified against implementation rather than copied from a README blindly.
