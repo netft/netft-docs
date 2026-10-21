@@ -26,12 +26,12 @@
           "audience": "Lab and field users",
           "docsPath": "tutorials/viewer/connect-and-inspect",
           "repository": "https://github.com/netft/netft-viewer",
-          "version": "0.2.1",
+          "version": "0.2.2",
           "platforms": ["Linux", "macOS", "Windows"],
           "installMethods": ["release", "source"],
           "documentationOwner": "netft-docs",
           "priority": 2,
-          "releaseChannel": "development"
+          "releaseChannel": "stable"
         }
       ]
     },
