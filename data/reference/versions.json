@@ -30,12 +30,12 @@
       "sourceCommit": "e272550080e10a1f1bc71c2ce6499c556ecd538c"
     },
     "netft-viewer": {
-      "version": "0.2.1",
-      "sourceTag": "v0.2.1",
+      "version": "0.2.2",
+      "sourceTag": "v0.2.2",
       "repository": "https://github.com/netft/netft-viewer",
-      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.2.1",
-      "sourceCommit": "678da9903880849d1a673504e3f16c177e384bcc",
-      "releaseChannel": "development"
+      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.2.2",
+      "sourceCommit": "a7c8068a25aa6ac5b2dcd87271b477af283267bc",
+      "releaseChannel": "stable"
     }
   }
 }

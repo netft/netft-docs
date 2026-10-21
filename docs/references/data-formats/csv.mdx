@@ -20,7 +20,7 @@ Monitor CSV is observation output. Its bounded presentation rate can be lower th
 ```text
 schema_version,timestamp_utc,elapsed_seconds,rdt_sequence,ft_sequence,status,
 raw_fx,raw_fy,raw_fz,raw_tx,raw_ty,raw_tz,
-fx,fy,fz,tx,ty,tz,force_unit,torque_unit
+fx,fy,fz,tx,ty,tz,force_unit,torque_unit,configuration_revision
 ```
 
 `timestamp_utc` is for cross-system correlation. `elapsed_seconds` is the monotonic capture timeline and should be used for interval analysis.
@@ -41,7 +41,7 @@ CLI and Viewer recorders write a temporary `.partial` file and promote it only a
 
 ## Recording metadata (CLI 0.3.0 and Viewer 0.2.1)
 
-After successful data finalization, the candidate writes `<output>.metadata.json` using schema version 1 and kind `netft-recording`. CLI and Viewer share these meanings:
+CLI 0.3.0 and later and Viewer 0.2.1 and later write `<output>.metadata.json` after successful data finalization, using schema version 1 and kind `netft-recording`. Both applications share these meanings:
 
 | Field                                 | Meaning                                                                                                                                                                                                  |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -57,4 +57,4 @@ After successful data finalization, the candidate writes `<output>.metadata.json
 
 Partial or failed captures do not receive a completed summary. Metadata creation and promotion follow the data file's overwrite policy. The two files are finalized separately: a metadata failure reports an error and preserves the completed data file, and may leave a metadata partial for recovery. Keep both files when archiving a successful capture.
 
-The CLI candidate appends `configuration_revision` to CSV without moving existing columns and adds it inside the NDJSON sample object. Viewer already records revisions in each CSV row. Existing published releases retain their documented formats until these changes are released.
+CLI 0.3.0 and later append `configuration_revision` to CSV without moving existing columns and add it inside the NDJSON sample object. Viewer records revisions in each CSV row. Older releases retain their documented formats.
