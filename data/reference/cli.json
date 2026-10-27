@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "kind": "cli",
   "component": "netft-cli",
-  "version": "0.3.0",
-  "sourceCommit": "ed946edcf31d4a6fab06dadaa3826afc7522f161",
+  "version": "0.3.1",
+  "sourceCommit": "8565dfbf6a5cf3d1db00723928de561c581db62d",
   "options": [
     {
       "id": "format",
@@ -341,6 +341,6 @@
     }
   ],
   "publication": "released",
-  "sourceTag": "v0.3.0",
-  "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.0"
+  "sourceTag": "v0.3.1",
+  "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.1"
 }

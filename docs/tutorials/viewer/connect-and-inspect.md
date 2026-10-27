@@ -1,6 +1,6 @@
 # Connect and inspect live data
 
-Net F/T Viewer 0.2.2 is a cross-platform desktop application for one sensor. It combines raw counts, calibrated values, units, connection health, charts, bias, and buffered CSV recording without requiring ROS.
+Net F/T Viewer 0.2.3 is a cross-platform desktop application for one sensor. It combines raw counts, calibrated values, units, connection health, charts, bias, and buffered CSV recording without requiring ROS.
 
 ![Net F/T Viewer showing connection controls, status, live values, and six chart panels.](/img/netft-viewer.png)
 
@@ -9,6 +9,8 @@ Net F/T Viewer 0.2.2 is a cross-platform desktop application for one sensor. It 
 Download the installer or portable archive from [GitHub Releases](https://github.com/netft/netft-viewer/releases). Connect the computer and sensor to the same trusted IPv4 network, stop other RDT clients, enter the active sensor address, and select **Connect**.
 
 The Status section reports connection state, product, receive and delivery rates, packet loss, device status, latest error, recording progress, and buffer use. Live data reports Fx through Tz as integer counts and calibrated values. Units come from the sensor configuration, not Viewer defaults.
+
+Legacy firmware may omit the product name from its XML. Viewer 0.2.3 accepts that configuration and displays `ATI Net F/T`, while still requiring the sensor's calibration scales and units. Upgrade an older Viewer if Connect reports a missing `prodname` field.
 
 Read the interface from left to right:
 

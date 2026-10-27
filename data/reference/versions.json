@@ -2,39 +2,39 @@
   "schemaVersion": 1,
   "components": {
     "netft-cpp": {
-      "version": "0.3.4",
-      "sourceTag": "v0.3.4",
+      "version": "0.3.5",
+      "sourceTag": "v0.3.5",
       "repository": "https://github.com/netft/netft-cpp",
-      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.4",
-      "sourceCommit": "1ce68a08a9387d9a36d22c3c259e44533199c347"
+      "sourceUrl": "https://github.com/netft/netft-cpp/tree/v0.3.5",
+      "sourceCommit": "d2ea470267d9fb5dc4d1ee53b9ce268a831c60dc"
     },
     "pyNetFT": {
-      "version": "2.1.2",
-      "sourceTag": "v2.1.2",
+      "version": "2.1.3",
+      "sourceTag": "v2.1.3",
       "repository": "https://github.com/netft/pyNetFT",
-      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.2",
-      "sourceCommit": "7d7b9fb2bfb53e2cfc362c3d76d5a0222d385464"
+      "sourceUrl": "https://github.com/netft/pyNetFT/tree/v2.1.3",
+      "sourceCommit": "da585a9c494ad76057e72fd0d9027d535c5c0afd"
     },
     "netft-cli": {
-      "version": "0.3.0",
-      "sourceTag": "v0.3.0",
+      "version": "0.3.1",
+      "sourceTag": "v0.3.1",
       "repository": "https://github.com/netft/netft-cli",
-      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.0",
-      "sourceCommit": "ed946edcf31d4a6fab06dadaa3826afc7522f161"
+      "sourceUrl": "https://github.com/netft/netft-cli/tree/v0.3.1",
+      "sourceCommit": "8565dfbf6a5cf3d1db00723928de561c581db62d"
     },
     "ros-netft": {
-      "version": "0.4.0",
-      "sourceTag": "0.4.0",
+      "version": "0.4.1",
+      "sourceTag": "0.4.1",
       "repository": "https://github.com/netft/ros-netft",
-      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.4.0",
-      "sourceCommit": "e272550080e10a1f1bc71c2ce6499c556ecd538c"
+      "sourceUrl": "https://github.com/netft/ros-netft/tree/0.4.1",
+      "sourceCommit": "4f92181ba61ccc530d6424d4d593991720f8cbe8"
     },
     "netft-viewer": {
-      "version": "0.2.2",
-      "sourceTag": "v0.2.2",
+      "version": "0.2.3",
+      "sourceTag": "v0.2.3",
       "repository": "https://github.com/netft/netft-viewer",
-      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.2.2",
-      "sourceCommit": "a7c8068a25aa6ac5b2dcd87271b477af283267bc",
+      "sourceUrl": "https://github.com/netft/netft-viewer/tree/v0.2.3",
+      "sourceCommit": "588064abfa09f21486d97689ee45bdc37fe2e5b5",
       "releaseChannel": "stable"
     }
   }

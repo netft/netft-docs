@@ -6,17 +6,17 @@ sidebar_position: 2
 
 Choose one interface for the first connection. The CLI is the recommended commissioning tool because it can inspect configuration and run a bounded health check without a GUI, programming environment, or ROS graph.
 
-Viewer 0.2.2 is a stable release. Its Windows installers are unsigned; macOS packages use ad hoc signatures for code integrity and are not notarized. Operating-system policy may require explicit approval before opening the application. Publisher signing is optional and does not determine the release channel.
+Viewer 0.2.3 is a stable release. Its Windows installers are unsigned; macOS packages use ad hoc signatures for code integrity and are not notarized. Operating-system policy may require explicit approval before opening the application. Publisher signing is optional and does not determine the release channel.
 
 ## Supported releases
 
 | Interface      | Version | Preferred install                   | Platforms                                  |
 | -------------- | ------- | ----------------------------------- | ------------------------------------------ |
-| Net F/T CLI    | 0.3.0   | GitHub release executable           | Linux, macOS, Windows                      |
-| Net F/T Viewer | 0.2.2   | GitHub release installer or archive | Linux, macOS, Windows                      |
-| netft-cpp      | 0.3.4   | CMake source build                  | Linux, macOS, Windows                      |
-| pyNetFT        | 2.1.2   | PyPI wheel                          | CPython 3.10–3.14 on Linux, macOS, Windows |
-| ros-netft      | 0.4.0   | ROS workspace source build          | Supported ROS environments on Linux        |
+| Net F/T CLI    | 0.3.1   | GitHub release executable           | Linux, macOS, Windows                      |
+| Net F/T Viewer | 0.2.3   | GitHub release installer or archive | Linux, macOS, Windows                      |
+| netft-cpp      | 0.3.5   | CMake source build                  | Linux, macOS, Windows                      |
+| pyNetFT        | 2.1.3   | PyPI wheel                          | CPython 3.10–3.14 on Linux, macOS, Windows |
+| ros-netft      | 0.4.1   | ROS workspace source build          | Supported ROS environments on Linux        |
 
 Check the [compatibility reference](../references/compatibility.mdx) before installing a later release.
 
@@ -54,7 +54,7 @@ No ROS installation is needed. The application is self-contained; host firewall 
 Install the supported wheel:
 
 ```bash
-python -m pip install pynetft==2.1.2
+python -m pip install pynetft==2.1.3
 python -c "import pynetft; print(pynetft.__version__)"
 ```
 
@@ -65,7 +65,7 @@ Wheels include the native core and required curl implementation, so users do not
 Build and install netft-cpp with CMake:
 
 ```bash
-git clone --branch v0.3.4 https://github.com/netft/netft-cpp.git
+git clone --branch v0.3.5 https://github.com/netft/netft-cpp.git
 cd netft-cpp
 cmake -S . -B build/release \
   -DCMAKE_BUILD_TYPE=Release \
@@ -85,7 +85,7 @@ Replace `lyrical` with another supported distribution when required:
 ```bash
 source /opt/ros/lyrical/setup.bash
 mkdir -p ~/netft_ws/src
-git clone --branch 0.4.0 https://github.com/netft/ros-netft.git \
+git clone --branch 0.4.1 https://github.com/netft/ros-netft.git \
   ~/netft_ws/src/netft_driver
 cd ~/netft_ws
 rosdep install --from-paths src --ignore-src -r -y
