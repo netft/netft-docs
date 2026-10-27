@@ -12,6 +12,10 @@ Diagnose the boundary that fails before changing calibration, repeatedly biasing
 
 A failed ping alone is inconclusive because ICMP may be blocked. A failed HTTP request points to power, addressing, routing, firewall, or the configuration service—not RDT parsing.
 
+## Connect reports missing `prodname`
+
+Some legacy firmware omits the product name from `netftapi2.xml` even though its calibration is valid. Upgrade to Viewer 0.2.3, CLI 0.3.1, pyNetFT 2.1.3, ros-netft 0.4.1, or netft-cpp 0.3.5. These releases display `ATI Net F/T` for an absent name and continue to use the device's actual calibration scales and units. Missing or invalid calibration still causes an error; this fix does not require changing sensor settings.
+
 ## HTTP works but no samples arrive
 
 Stop every other RDT client. Confirm the configured RDT port, host firewall UDP return path, and selected local interface. Remove VPNs or ambiguous routes temporarily. Run a bounded CLI check rather than an indefinite monitor.
